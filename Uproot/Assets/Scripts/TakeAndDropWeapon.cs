@@ -1,6 +1,7 @@
 using Newtonsoft.Json.Bson;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TakeAndDropWeapon : MonoBehaviour
@@ -74,6 +75,8 @@ public class TakeAndDropWeapon : MonoBehaviour
         SpawnHoldingWeapon();
         Debug.Log($"Weapon {weapon} is picked");
         Destroy(whichWeaponWeOn);
+
+        Shooting.bulletAmmo += weapon.GetComponent<AmmoIn>().ammoInsideGun;
     }
 
     public void SpawnHoldingWeapon()
@@ -88,15 +91,19 @@ public class TakeAndDropWeapon : MonoBehaviour
     {
         SpawnLyingWeapon();
         Debug.Log($"Weapon {weapon} is dropped");
-        Destroy(weapon);
+        Destroy(currentWeapon);
         currentWeapon = null;
 
+        Shooting.bulletAmmo = 0;
+        AmmoTextUi.ammoBullets = 0;
     }
 
     private void SpawnLyingWeapon()
     {
         whichWeaponWeOn = Resources.Load<GameObject>($"Prefabs/Guns/Common/{currentWeapon.name.Replace("holding_", "").Replace("(Clone)", "")}");
-        Instantiate(whichWeaponWeOn, transform.position, Quaternion.identity);
+        GameObject weapon = Instantiate(whichWeaponWeOn, transform.position, Quaternion.identity);
+
+        weapon.GetComponent<AmmoIn>().ammoInsideGun = Shooting.bulletAmmo;
     }
 
     private void ChangePlayerSprite() //установка положения держащего в руках гг

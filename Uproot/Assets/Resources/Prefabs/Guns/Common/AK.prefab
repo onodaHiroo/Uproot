@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3365615023576164986}
   - component: {fileID: 7507209921431694310}
   - component: {fileID: 4057393989010132614}
+  - component: {fileID: 3334900718458977166}
   m_Layer: 0
   m_Name: AK
   m_TagString: Weapon
@@ -101,3 +102,15 @@ CapsuleCollider2D:
   m_Offset: {x: 0.008265978, y: 0.037212584}
   m_Size: {x: 5.1973453, y: 2.012934}
   m_Direction: 1
+--- !u!114 &3334900718458977166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3134293530511397798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8500ac9d748f3424fb9c72d90d75e2b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
