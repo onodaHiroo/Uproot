@@ -1,6 +1,7 @@
 using Newtonsoft.Json.Bson;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -77,6 +78,8 @@ public class TakeAndDropWeapon : MonoBehaviour
         Destroy(whichWeaponWeOn);
 
         Shooting.bulletAmmo += weapon.GetComponent<AmmoIn>().ammoInsideGun;
+
+        AmmoTextUi.sizeClip = weapon.GetComponent<AmmoIn>().sizeOfClip;
     }
 
     public void SpawnHoldingWeapon()
@@ -96,6 +99,7 @@ public class TakeAndDropWeapon : MonoBehaviour
 
         Shooting.bulletAmmo = 0;
         AmmoTextUi.ammoBullets = 0;
+        AmmoTextUi.sizeClip = 0;
     }
 
     private void SpawnLyingWeapon()
@@ -104,6 +108,7 @@ public class TakeAndDropWeapon : MonoBehaviour
         GameObject weapon = Instantiate(whichWeaponWeOn, transform.position, Quaternion.identity);
 
         weapon.GetComponent<AmmoIn>().ammoInsideGun = Shooting.bulletAmmo;
+        weapon.GetComponent<AmmoIn>().sizeOfClip = AmmoTextUi.sizeClip;
     }
 
     private void ChangePlayerSprite() //установка положения держащего в руках гг

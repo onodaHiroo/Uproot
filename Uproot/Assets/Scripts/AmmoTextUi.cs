@@ -7,6 +7,7 @@ public class AmmoTextUi : MonoBehaviour
 {
     Text text;
     public static int ammoBullets = 0;
+    public static int sizeClip = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,6 @@ public class AmmoTextUi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = ammoBullets.ToString();
+        text.text = $"{ammoBullets}/{sizeClip}";
     }
 }
