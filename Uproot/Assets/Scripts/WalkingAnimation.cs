@@ -19,8 +19,12 @@ public class WalkingAnimation : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
 
         if (movement.x != 0f || movement.y != 0f)
+        {
             runningAnimator.SetTrigger("PlayWhileRunning");
+        }
         else
+        {
             runningAnimator.SetTrigger("DontPlay");
+        }
     }
 }

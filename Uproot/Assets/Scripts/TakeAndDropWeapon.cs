@@ -3,11 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TakeWeapon : MonoBehaviour
+public class TakeAndDropWeapon : MonoBehaviour
 {
-    public GameObject _currentWeapon = null;
-    public GameObject _whichWeaponWeOn = null;
+    private GameObject _currentWeapon = null;
+    private GameObject _whichWeaponWeOn = null;
     public Transform holdPoint;
+    protected bool _withWeapon = false;
+
+    public GameObject holdingGunPlayerObject;
+    public GameObject notHoldingGunPlayerObject;
+
+    public void Start()
+    {
+        ChangePlayerSprite();
+    }
 
     public void FixedUpdate()
     {
@@ -19,10 +28,14 @@ public class TakeWeapon : MonoBehaviour
         if (Input.GetMouseButtonDown(1) && _whichWeaponWeOn != null && _currentWeapon == null)
         {
             PickWeapon(_whichWeaponWeOn);
+            _withWeapon = true;
+            ChangePlayerSprite();
         }
         else if (Input.GetMouseButtonDown(1) && _whichWeaponWeOn == null && _currentWeapon != null)
         {
             DropWeapon(_currentWeapon);
+            _withWeapon = false;
+            ChangePlayerSprite();
         }
 
 
@@ -71,7 +84,19 @@ public class TakeWeapon : MonoBehaviour
     {
         _whichWeaponWeOn = Resources.Load<GameObject>($"Prefabs/Guns/Common/{_currentWeapon.name.Replace("holding_", "").Replace("(Clone)", "")}");
         Instantiate(_whichWeaponWeOn, transform.position, Quaternion.identity);
-        //Destroy(droppedWeapon);
     }
-    //надо сделать чтобы пушка выбрасывалась на пкм а если есть что-то под игроком то менялось
+    
+    private void ChangePlayerSprite() //установка положения держащего в руках гг
+    {
+        if (_withWeapon)
+        {
+            holdingGunPlayerObject.SetActive(true);
+            notHoldingGunPlayerObject.SetActive(false);
+        }
+        else
+        {
+            holdingGunPlayerObject.SetActive(false);
+            notHoldingGunPlayerObject.SetActive(true);
+        }
+    }
 }
