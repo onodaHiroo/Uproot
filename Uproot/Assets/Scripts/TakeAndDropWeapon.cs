@@ -7,14 +7,15 @@ public class TakeAndDropWeapon : MonoBehaviour
 {
     public GameObject currentWeapon = null;
     public GameObject whichWeaponWeOn = null;
+    private GameObject _onlyBody;
+
     public Transform holdPoint;
 
     private SpriteRenderer spriteRenderer;
-    private GameObject _onlyBody;
+
     public Sprite holdingGun;
     public Sprite notHoldingGun;
 
-    private bool _legsAlreadyChanged;
     protected bool _withWeapon = false;
 
 
@@ -78,7 +79,7 @@ public class TakeAndDropWeapon : MonoBehaviour
     public void SpawnHoldingWeapon()
     {
         GameObject tempcurrentWeapon = Resources.Load<GameObject>($"Prefabs/Guns/Holding/holding_{whichWeaponWeOn.name.Replace("(Clone)","")}");
-        GameObject weapon = Instantiate(tempcurrentWeapon, transform.position, holdPoint.rotation);
+        GameObject weapon = Instantiate(tempcurrentWeapon, holdPoint.transform.position, holdPoint.rotation);
         weapon.transform.parent = holdPoint.transform;
         currentWeapon = weapon;
     }
@@ -103,16 +104,11 @@ public class TakeAndDropWeapon : MonoBehaviour
         if (_withWeapon)
         {
             spriteRenderer.sprite = holdingGun;
-            Transform animationTransform = transform.Find("Animation");
-            animationTransform.transform.position = transform.position + new Vector3(0, -0.8f, 0);
-            _legsAlreadyChanged = true;
             _onlyBody.SetActive(true);
         }
-        else if (_legsAlreadyChanged == true && _withWeapon != true)
+        else
         {
             spriteRenderer.sprite = notHoldingGun;
-            Transform animationTransform = transform.Find("Animation");
-            animationTransform.transform.position = transform.position + new Vector3(0, 0, 0);
             _onlyBody.SetActive(false);
         }
     }
