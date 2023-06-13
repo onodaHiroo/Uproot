@@ -5,54 +5,66 @@ using UnityEngine;
 
 public class TakeAndDropWeapon : MonoBehaviour
 {
-    private GameObject _currentWeapon = null;
-    private GameObject _whichWeaponWeOn = null;
+    public GameObject currentWeapon = null;
+    public GameObject whichWeaponWeOn = null;
     public Transform holdPoint;
+
+    private SpriteRenderer spriteRenderer;
+    private GameObject _onlyBody;
+    public Sprite holdingGun;
+    public Sprite notHoldingGun;
+
+    private bool _legsAlreadyChanged;
     protected bool _withWeapon = false;
 
-    public GameObject holdingGunPlayerObject;
-    public GameObject notHoldingGunPlayerObject;
 
-    public void Start()
+
+
+    void Start()
     {
-        ChangePlayerSprite();
+        spriteRenderer = GameObject.Find("Player").GetComponent<SpriteRenderer>();
+        _onlyBody = GameObject.Find("OnlyBody");
+        _onlyBody.SetActive(false);
+        ChangePlayerSprite();   
     }
 
-    public void FixedUpdate()
+    void Update()
     {
-        WeaponManager();
+        if (Input.GetMouseButtonDown(1))
+        {
+            WeaponManager();
+        }
+            
     }
 
     private void WeaponManager()
     {
-        if (Input.GetMouseButtonDown(1) && _whichWeaponWeOn != null && _currentWeapon == null)
+        if (whichWeaponWeOn != null && currentWeapon == null)
         {
-            PickWeapon(_whichWeaponWeOn);
+            PickWeapon(whichWeaponWeOn);
             _withWeapon = true;
             ChangePlayerSprite();
         }
-        else if (Input.GetMouseButtonDown(1) && _whichWeaponWeOn == null && _currentWeapon != null)
+        else if (whichWeaponWeOn == null && currentWeapon != null)
         {
-            DropWeapon(_currentWeapon);
+            DropWeapon(currentWeapon);
             _withWeapon = false;
             ChangePlayerSprite();
         }
-
-
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.transform.tag == "Weapon")
         {
-            _whichWeaponWeOn = collider.gameObject;
+            whichWeaponWeOn = collider.gameObject;
         }
     } 
     private void OnTriggerExit2D(Collider2D collider)
     {
         if (collider.transform.tag == "Weapon")
         {
-            _whichWeaponWeOn = null;
+            whichWeaponWeOn = null;
         }
     }
 
@@ -60,15 +72,15 @@ public class TakeAndDropWeapon : MonoBehaviour
     {
         SpawnHoldingWeapon();
         Debug.Log($"Weapon {weapon} is picked");
-        Destroy(_whichWeaponWeOn);
+        Destroy(whichWeaponWeOn);
     }
 
     public void SpawnHoldingWeapon()
     {
-        GameObject tempcurrentWeapon = Resources.Load<GameObject>($"Prefabs/Guns/Holding/holding_{_whichWeaponWeOn.name.Replace("(Clone)","")}");
+        GameObject tempcurrentWeapon = Resources.Load<GameObject>($"Prefabs/Guns/Holding/holding_{whichWeaponWeOn.name.Replace("(Clone)","")}");
         GameObject weapon = Instantiate(tempcurrentWeapon, transform.position, holdPoint.rotation);
         weapon.transform.parent = holdPoint.transform;
-        _currentWeapon = weapon;
+        currentWeapon = weapon;
     }
 
     private void DropWeapon(GameObject weapon)
@@ -76,27 +88,34 @@ public class TakeAndDropWeapon : MonoBehaviour
         SpawnLyingWeapon();
         Debug.Log($"Weapon {weapon} is dropped");
         Destroy(weapon);
-        _currentWeapon = null;
+        currentWeapon = null;
 
     }
 
     private void SpawnLyingWeapon()
     {
-        _whichWeaponWeOn = Resources.Load<GameObject>($"Prefabs/Guns/Common/{_currentWeapon.name.Replace("holding_", "").Replace("(Clone)", "")}");
-        Instantiate(_whichWeaponWeOn, transform.position, Quaternion.identity);
+        whichWeaponWeOn = Resources.Load<GameObject>($"Prefabs/Guns/Common/{currentWeapon.name.Replace("holding_", "").Replace("(Clone)", "")}");
+        Instantiate(whichWeaponWeOn, transform.position, Quaternion.identity);
     }
-    
+
     private void ChangePlayerSprite() //установка положения держащего в руках гг
     {
         if (_withWeapon)
         {
-            holdingGunPlayerObject.SetActive(true);
-            notHoldingGunPlayerObject.SetActive(false);
+            spriteRenderer.sprite = holdingGun;
+            Transform animationTransform = transform.Find("Animation");
+            animationTransform.transform.position = transform.position + new Vector3(0, -0.8f, 0);
+            _legsAlreadyChanged = true;
+            _onlyBody.SetActive(true);
         }
-        else
+        else if (_legsAlreadyChanged == true && _withWeapon != true)
         {
-            holdingGunPlayerObject.SetActive(false);
-            notHoldingGunPlayerObject.SetActive(true);
+            spriteRenderer.sprite = notHoldingGun;
+            Transform animationTransform = transform.Find("Animation");
+            animationTransform.transform.position = transform.position + new Vector3(0, 0, 0);
+            _onlyBody.SetActive(false);
         }
     }
+
+
 }
