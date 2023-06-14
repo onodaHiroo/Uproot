@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
     public Transform firePoint;
+
     public GameObject bulletPrefab;
+    public GameObject _soundOfShot;
 
     public float bulletForce = 60f;
     public static int bulletAmmo;
@@ -28,6 +31,7 @@ public class Shooting : MonoBehaviour
             if (bulletAmmo > 0)
             {
                 Shoot();
+                SoundOfShot();
             }  
         }
         _timerFire += Time.deltaTime;
@@ -42,5 +46,11 @@ public class Shooting : MonoBehaviour
 
         bulletAmmo -= 1;
         _timerFire = 0;
+    }
+
+    private void SoundOfShot()
+    {
+        GameObject shotSound = Instantiate(_soundOfShot, transform.position, Quaternion.identity);
+        Destroy(shotSound, 2f);
     }
 }

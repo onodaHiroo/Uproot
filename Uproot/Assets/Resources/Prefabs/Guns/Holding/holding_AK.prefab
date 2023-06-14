@@ -39,6 +39,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4108063698212881486}
     m_Modifications:
+    - target: {fileID: -6242171178124882040, guid: e157e7e88c0410747b4ea040aac2421b, type: 3}
+      propertyPath: _soundOfShot
+      value: 
+      objectReference: {fileID: 502247241224230951, guid: 2ff716603b559cb45b66894dab3a0856, type: 3}
     - target: {fileID: 7819292446865779842, guid: e157e7e88c0410747b4ea040aac2421b, type: 3}
       propertyPath: m_RootOrder
       value: 0
