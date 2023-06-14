@@ -1169,6 +1169,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: AK
       objectReference: {fileID: 0}
+    - target: {fileID: 3334900718458977166, guid: 6b0f264a552ff394fbe6aff87528d6e0, type: 3}
+      propertyPath: sizeOfClip
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3334900718458977166, guid: 6b0f264a552ff394fbe6aff87528d6e0, type: 3}
+      propertyPath: ammoInsideGun
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3365615023576164986, guid: 6b0f264a552ff394fbe6aff87528d6e0, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -3098,6 +3106,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6412192539931628340, guid: e8fb31594b7f17e4797e368ba9a80000, type: 3}
+      propertyPath: sizeOfClip
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6412192539931628340, guid: e8fb31594b7f17e4797e368ba9a80000, type: 3}
+      propertyPath: ammoInsideGun
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8341346133776083120, guid: e8fb31594b7f17e4797e368ba9a80000, type: 3}
       propertyPath: m_Name
       value: OMFGUN
