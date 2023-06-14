@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: flowing_luzha_krovi
+  m_Name: luzha_krovi
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,13 +20,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 471660098, guid: 5608b12f5add4ec4a8912df72022fb7f, type: 3}
+      value: {fileID: 1099091377, guid: 5608b12f5add4ec4a8912df72022fb7f, type: 3}
     - time: 0.083333336
-      value: {fileID: -476335293, guid: 5608b12f5add4ec4a8912df72022fb7f, type: 3}
+      value: {fileID: 230360455, guid: 5608b12f5add4ec4a8912df72022fb7f, type: 3}
     - time: 0.16666667
-      value: {fileID: -1369742681, guid: 5608b12f5add4ec4a8912df72022fb7f, type: 3}
+      value: {fileID: -1819975741, guid: 5608b12f5add4ec4a8912df72022fb7f, type: 3}
     - time: 0.25
-      value: {fileID: 821851983, guid: 5608b12f5add4ec4a8912df72022fb7f, type: 3}
+      value: {fileID: 1722804168, guid: 5608b12f5add4ec4a8912df72022fb7f, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,10 +46,10 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 471660098, guid: 5608b12f5add4ec4a8912df72022fb7f, type: 3}
-    - {fileID: -476335293, guid: 5608b12f5add4ec4a8912df72022fb7f, type: 3}
-    - {fileID: -1369742681, guid: 5608b12f5add4ec4a8912df72022fb7f, type: 3}
-    - {fileID: 821851983, guid: 5608b12f5add4ec4a8912df72022fb7f, type: 3}
+    - {fileID: 1099091377, guid: 5608b12f5add4ec4a8912df72022fb7f, type: 3}
+    - {fileID: 230360455, guid: 5608b12f5add4ec4a8912df72022fb7f, type: 3}
+    - {fileID: -1819975741, guid: 5608b12f5add4ec4a8912df72022fb7f, type: 3}
+    - {fileID: 1722804168, guid: 5608b12f5add4ec4a8912df72022fb7f, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

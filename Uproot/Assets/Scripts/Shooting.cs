@@ -10,12 +10,12 @@ public class Shooting : MonoBehaviour
     public float bulletForce = 60f;
     public static int bulletAmmo;
 
-    private float Period = 0.1f;
-    private float timerFire;
+    private float _period = 0.1f;
+    private float _timerFire;
 
     void Start()
     {
-        timerFire = Period;
+        _timerFire = _period;
     }
 
     // Update is called once per frame
@@ -23,14 +23,14 @@ public class Shooting : MonoBehaviour
     {
         AmmoTextUi.ammoBullets = bulletAmmo;
 
-        if (Input.GetAxis("Fire1") > 0 && timerFire >= Period)
+        if (Input.GetAxis("Fire1") > 0 && _timerFire >= _period)
         {
             if (bulletAmmo > 0)
             {
                 Shoot();
             }  
         }
-        timerFire += Time.deltaTime;
+        _timerFire += Time.deltaTime;
     }
 
     private void Shoot()
@@ -41,6 +41,6 @@ public class Shooting : MonoBehaviour
         Destroy(bullet, 2f);
 
         bulletAmmo -= 1;
-        timerFire = 0;
+        _timerFire = 0;
     }
 }

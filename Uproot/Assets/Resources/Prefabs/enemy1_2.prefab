@@ -103,6 +103,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 7b678464ed93fac4ab31d5871610f4a2, type: 3}
   deadBodySprite: {fileID: 21300000, guid: dd67ff26797520c4189fbaf1ebd1c6d1, type: 2}
   deadBody: {fileID: 1904232896140330176, guid: 9638f92733f0b9046b0d0ac96926564b, type: 3}
+  deadBodyBloodAnim: {fileID: 2409019505703208906, guid: 3faf05f467c8b524ea6e40040d775148, type: 3}
 --- !u!50 &-3379583217113989954
 Rigidbody2D:
   serializedVersion: 4

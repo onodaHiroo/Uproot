@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     public GameObject deadBody;
+    public GameObject deadBodyBloodAnim;
 
     void Start()
     {
@@ -32,6 +33,7 @@ public class Enemy : MonoBehaviour
     {
         Destroy(gameObject);
         GameObject enemyDead = Instantiate(deadBody, transform.position, transform.rotation);
+        GameObject flowingBlood = Instantiate(deadBodyBloodAnim, transform.position, transform.rotation);
         Debug.Log($"{gameObject} is dead");
     }
 

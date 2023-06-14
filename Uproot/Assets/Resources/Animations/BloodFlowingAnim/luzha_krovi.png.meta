@@ -125,14 +125,14 @@ TextureImporter:
         width: 70
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59b2bf416ccc72347873f0e1eb3cf795
-      internalID: 471660098
+      spriteID: c2b949d5eb1b18d4eae89ed851420715
+      internalID: 1099091377
       vertices: []
       indices: 
       edges: []
@@ -146,14 +146,14 @@ TextureImporter:
         width: 100
         height: 90
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef66c3df569a31348ad6042108a53634
-      internalID: -476335293
+      spriteID: d1d302477bba38b4ead63ed6ffa0eecc
+      internalID: 230360455
       vertices: []
       indices: 
       edges: []
@@ -167,14 +167,14 @@ TextureImporter:
         width: 140
         height: 140
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 220c21b3a0f376c4e90c7f8f13fd3ae2
-      internalID: -1369742681
+      spriteID: 614099c7c00992b4e96a278072924b01
+      internalID: -1819975741
       vertices: []
       indices: 
       edges: []
@@ -188,14 +188,14 @@ TextureImporter:
         width: 200
         height: 180
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4fd1f46c3c75624185a517b4f99ec14
-      internalID: 821851983
+      spriteID: 0a09f4b09c96ec349b392572439c3409
+      internalID: 1722804168
       vertices: []
       indices: 
       edges: []
@@ -211,10 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      luzha_krovi_2: -1369742681
-      luzha_krovi_1: -476335293
-      luzha_krovi_3: 821851983
-      luzha_krovi_0: 471660098
+      luzha_krovi_2: -1819975741
+      luzha_krovi_1: 230360455
+      luzha_krovi_3: 1722804168
+      luzha_krovi_0: 1099091377
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
