@@ -18,7 +18,7 @@ public class TakeAndDropWeapon : MonoBehaviour
     public Sprite holdingGun;
     public Sprite notHoldingGun;
 
-    protected bool _withWeapon = false;
+    public static bool withWeapon = false;
 
 
 
@@ -45,14 +45,19 @@ public class TakeAndDropWeapon : MonoBehaviour
         if (whichWeaponWeOn != null && currentWeapon == null)
         {
             PickWeapon(whichWeaponWeOn);
-            _withWeapon = true;
+            withWeapon = true;
             ChangePlayerSprite();
         }
         else if (whichWeaponWeOn == null && currentWeapon != null)
         {
             DropWeapon(currentWeapon);
-            _withWeapon = false;
+            withWeapon = false;
             ChangePlayerSprite();
+        }
+        else if (whichWeaponWeOn != null && currentWeapon != null)
+        {
+            ChangeWeapon(currentWeapon, whichWeaponWeOn);
+            
         }
     }
 
@@ -77,17 +82,9 @@ public class TakeAndDropWeapon : MonoBehaviour
         Debug.Log($"Weapon {weapon} is picked");
         Destroy(whichWeaponWeOn);
 
-        Shooting.bulletAmmo += weapon.GetComponent<AmmoIn>().ammoInsideGun;
+        Shooting.bulletAmmo = weapon.GetComponent<AmmoIn>().ammoInsideGun;
 
         AmmoTextUi.sizeClip = weapon.GetComponent<AmmoIn>().sizeOfClip;
-    }
-
-    public void SpawnHoldingWeapon()
-    {
-        GameObject tempcurrentWeapon = Resources.Load<GameObject>($"Prefabs/Guns/Holding/holding_{whichWeaponWeOn.name.Replace("(Clone)","")}");
-        GameObject weapon = Instantiate(tempcurrentWeapon, holdPoint.transform.position, holdPoint.rotation);
-        weapon.transform.parent = holdPoint.transform;
-        currentWeapon = weapon;
     }
 
     private void DropWeapon(GameObject weapon)
@@ -102,9 +99,39 @@ public class TakeAndDropWeapon : MonoBehaviour
         AmmoTextUi.sizeClip = 0;
     }
 
+    private void ChangeWeapon(GameObject CurrentWeapon, GameObject WhichWeaponWeOn)
+    {
+        //i dont even give a fuck how it works
+
+        GameObject tempCurrentWeapon = CurrentWeapon;
+        SpawnLyingWeapon();
+
+        Destroy(CurrentWeapon);
+        SpawnHoldingWeapon();
+        Debug.Log($"Weapon {tempCurrentWeapon} is dropped");
+
+        Destroy(WhichWeaponWeOn);
+        whichWeaponWeOn = tempCurrentWeapon;
+
+        Debug.Log($"Weapon {WhichWeaponWeOn} is picked");
+        withWeapon = true;
+        Shooting.bulletAmmo = WhichWeaponWeOn.GetComponent<AmmoIn>().ammoInsideGun;
+        AmmoTextUi.sizeClip = WhichWeaponWeOn.GetComponent<AmmoIn>().sizeOfClip;
+
+
+    }
+
+    public void SpawnHoldingWeapon()
+    {
+        GameObject tempcurrentWeapon = Resources.Load<GameObject>($"Prefabs/Guns/Holding/holding_{whichWeaponWeOn.name.Replace("(Clone)", "")}");
+        GameObject weapon = Instantiate(tempcurrentWeapon, holdPoint.transform.position, holdPoint.rotation);
+        weapon.transform.parent = holdPoint.transform;
+        currentWeapon = weapon;
+    }
+
     private void SpawnLyingWeapon()
     {
-        whichWeaponWeOn = Resources.Load<GameObject>($"Prefabs/Guns/Common/{currentWeapon.name.Replace("holding_", "").Replace("(Clone)", "")}");
+        GameObject whichWeaponWeOn = Resources.Load<GameObject>($"Prefabs/Guns/Common/{currentWeapon.name.Replace("holding_", "").Replace("(Clone)", "")}");
         GameObject weapon = Instantiate(whichWeaponWeOn, transform.position, Quaternion.identity);
 
         weapon.GetComponent<AmmoIn>().ammoInsideGun = Shooting.bulletAmmo;
@@ -113,7 +140,7 @@ public class TakeAndDropWeapon : MonoBehaviour
 
     private void ChangePlayerSprite() //установка положения держащего в руках гг
     {
-        if (_withWeapon)
+        if (withWeapon)
         {
             spriteRenderer.sprite = holdingGun;
             _onlyBody.SetActive(true);
@@ -126,4 +153,5 @@ public class TakeAndDropWeapon : MonoBehaviour
     }
 
 
+    
 }

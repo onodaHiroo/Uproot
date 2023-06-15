@@ -114,3 +114,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8500ac9d748f3424fb9c72d90d75e2b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ammoInsideGun: 0
+  sizeOfClip: 0
