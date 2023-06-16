@@ -15,12 +15,19 @@ public class Enemy : MonoBehaviour
 
     public GameObject deadBody;
     public GameObject deadBodyBloodAnim;
+    public StunTimerScript stunTimer;
+
+    public float _timeInStun;
+    public float _timerStartPunched;
+
+    public bool stunned;
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>(); // we are accessing the SpriteRenderer that is attached to the Gameobject
         if (spriteRenderer.sprite == null) // if the sprite on spriteRenderer is null then
             spriteRenderer.sprite = sprite; // set the sprite to sprite1
+
     }
 
     // Update is called once per frame
@@ -47,5 +54,15 @@ public class Enemy : MonoBehaviour
             Health = 0;
             EnemyDead();
         }
+    }
+
+    public void GetPunched(float time)
+    {
+        gameObject.SetActive(false);
+        stunned = true;
+
+        StunTimerScript timer = Instantiate(stunTimer, transform.position, Quaternion.identity);
+        timer.stunTime = time;
+        timer.enemy = this;
     }
 }

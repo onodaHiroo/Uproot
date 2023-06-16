@@ -36,8 +36,7 @@ public class TakeAndDropWeapon : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             WeaponManager();
-        }
-            
+        }   
     }
 
     private void WeaponManager()
@@ -61,13 +60,14 @@ public class TakeAndDropWeapon : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    private void OnTriggerStay2D(Collider2D collider)
     {
         if (collider.transform.tag == "Weapon")
         {
             whichWeaponWeOn = collider.gameObject;
         }
-    } 
+    }
+
     private void OnTriggerExit2D(Collider2D collider)
     {
         if (collider.transform.tag == "Weapon")
