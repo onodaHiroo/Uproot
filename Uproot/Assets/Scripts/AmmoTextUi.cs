@@ -14,7 +14,7 @@ public class AmmoTextUi : MonoBehaviour
     void Start()
     {
         text = GetComponent<Text>();
-        checkIfWithWeapon = TakeAndDropWeapon.withWeapon;
+        //checkIfWithWeapon = TakeAndDropWeapon.withWeapon;
     }
 
     // Update is called once per frame

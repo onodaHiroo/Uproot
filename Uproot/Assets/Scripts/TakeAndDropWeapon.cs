@@ -36,6 +36,8 @@ public class TakeAndDropWeapon : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             WeaponManager();
+            AmmoTextUi.checkIfWithWeapon = withWeapon;
+            Punching.withWeaponOn = withWeapon;
         }   
     }
 
