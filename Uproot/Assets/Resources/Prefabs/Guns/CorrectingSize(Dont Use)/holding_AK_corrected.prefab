@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -6242171178124882040}
   - component: {fileID: 3628452458916284546}
   - component: {fileID: 4865687899402687469}
+  - component: {fileID: 8194311665578852669}
   m_Layer: 0
   m_Name: holding_AK_corrected
   m_TagString: Untagged
@@ -102,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 7819292447455148569}
   bulletPrefab: {fileID: 8872038915046169037, guid: 61b2ff39919cf054dafcfb85678719f9, type: 3}
-  _soundOfShot: {fileID: 0}
+  _soundOfShot: {fileID: 502247241224230951, guid: 2ff716603b559cb45b66894dab3a0856, type: 3}
   bulletForce: 60
 --- !u!114 &3628452458916284546
 MonoBehaviour:
@@ -126,9 +127,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6ec4976ff16265e4bb445769d84ca122, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a1c15270507f2084bba7e93d5c29559d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -212,6 +213,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8194311665578852669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7819292446865779844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3860fb65fbf9ec74d8a60aeba3279a0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7819292447455148570
 GameObject:
   m_ObjectHideFlags: 0
