@@ -12,7 +12,7 @@ public class PlayerPunchTrigger : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        transform.parent.GetComponent<Punching>().enemyTag = null;
+        transform.parent.GetComponent<Punching>().objectTagInFrontOfPlayer = null;
         transform.parent.GetComponent<Punching>().enemy = null;
     }
 }

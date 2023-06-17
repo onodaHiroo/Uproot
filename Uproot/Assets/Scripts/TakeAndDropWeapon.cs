@@ -58,7 +58,6 @@ public class TakeAndDropWeapon : MonoBehaviour
         else if (whichWeaponWeOn != null && currentWeapon != null)
         {
             ChangeWeapon(currentWeapon, whichWeaponWeOn);
-            
         }
     }
 
@@ -144,13 +143,18 @@ public class TakeAndDropWeapon : MonoBehaviour
     {
         if (withWeapon)
         {
+            Animator animator = GetComponent<Animator>();
+            animator.enabled = false;
             spriteRenderer.sprite = holdingGun;
             _onlyBody.SetActive(true);
         }
         else
         {
+            Animator animator = GetComponent<Animator>();
+            animator.enabled = true;
             spriteRenderer.sprite = notHoldingGun;
             _onlyBody.SetActive(false);
+
         }
     }
 

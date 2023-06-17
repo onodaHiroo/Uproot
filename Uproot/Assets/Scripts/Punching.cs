@@ -7,16 +7,18 @@ public class Punching : MonoBehaviour
 {
     public float punchStunTime = 10;
     public static bool withWeaponOn = false;
-    public string enemyTag;
+    public string objectTagInFrontOfPlayer;
     public Enemy enemy;
-    public AudioSource punchSound;
 
-    public Animator punchAnimator;
+    public AudioSource punchSound;
+    public AudioSource sweepSound;
+
+    private Animator punchAnimator;
 
 
     void Start()
     {
-
+        punchAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -25,24 +27,23 @@ public class Punching : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && withWeaponOn == false)
         {
             punchAnimator.SetBool("Punched",true);
-            if (enemyTag == "Enemy")
+            if (objectTagInFrontOfPlayer == "Enemy")
             {
                 enemy.GetPunched(punchStunTime);
-                PunchSound();
+                punchSound.Play();
                 Debug.Log("You punched the enemy!");
+            }
+            else
+            {
+                sweepSound.Play();
             }
         }
     }
 
     public void CollisionDetected(Collider2D collider)
     {
-        enemyTag = collider.tag;
+        objectTagInFrontOfPlayer = collider.tag;
         enemy = collider.transform.GetComponent<Enemy>();
-    }
-
-    private void PunchSound()
-    {
-        punchSound.Play();
     }
 
     private void OnTheEndOfAnimation()
