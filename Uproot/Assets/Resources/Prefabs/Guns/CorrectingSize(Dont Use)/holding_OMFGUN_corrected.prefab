@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1308828494244655376}
   - component: {fileID: 7815680153740478960}
+  - component: {fileID: 4913601721435039731}
   - component: {fileID: 6326487499068222330}
   - component: {fileID: 3181401352437759457}
   - component: {fileID: 9157404195669691694}
@@ -89,6 +90,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4913601721435039731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701251249751606547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fa0c5a76add59f428a6221bfd202029, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 1280832818628501038}
+  bulletPrefab: {fileID: 8872038915046169037, guid: 61b2ff39919cf054dafcfb85678719f9, type: 3}
+  _soundOfShot: {fileID: 1441293548298414760, guid: b77e8d1def5d90d41a01d03c9c68991e, type: 3}
+  bulletForce: 90
 --- !u!114 &6326487499068222330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1280832818628501038}
   bulletPrefab: {fileID: 8872038915046169037, guid: 61b2ff39919cf054dafcfb85678719f9, type: 3}
-  _soundOfShot: {fileID: 502247241224230951, guid: 2ff716603b559cb45b66894dab3a0856, type: 3}
+  _soundOfShot: {fileID: 1441293548298414760, guid: b77e8d1def5d90d41a01d03c9c68991e, type: 3}
   bulletForce: 90
 --- !u!114 &3181401352437759457
 MonoBehaviour:

@@ -22,12 +22,13 @@ public class Enemy : MonoBehaviour
 
     public bool stunned;
 
+
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>(); // we are accessing the SpriteRenderer that is attached to the Gameobject
         if (spriteRenderer.sprite == null) // if the sprite on spriteRenderer is null then
             spriteRenderer.sprite = sprite; // set the sprite to sprite1
-
+        
     }
 
     // Update is called once per frame
@@ -64,5 +65,7 @@ public class Enemy : MonoBehaviour
         StunTimerScript timer = Instantiate(stunTimer, transform.position, Quaternion.identity);
         timer.stunTime = time;
         timer.enemy = this;
+
+        GetComponent<EnemyAI>().moving = true;
     }
 }

@@ -26,11 +26,11 @@ public class Shooting : MonoBehaviour
     {
         AmmoTextUi.ammoBullets = bulletAmmo;
 
-        if (Input.GetAxis("Fire1") > 0 && _timerFire >= _period)
+        if (Input.GetAxis("Fire1") > 0 && _timerFire >= _period )
         {
             if (bulletAmmo > 0)
             {
-                Shoot();
+                this.Shoot();
                 SoundOfShot();
             }  
         }

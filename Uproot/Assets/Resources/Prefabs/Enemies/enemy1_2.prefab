@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4110562619524649825}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WeaponHoldPoint
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
@@ -44,8 +44,8 @@ GameObject:
   - component: {fileID: -3155602844965109621}
   - component: {fileID: -3379583217113989954}
   - component: {fileID: 5841743286110920111}
-  - component: {fileID: -15260882146754531}
-  m_Layer: 0
+  - component: {fileID: 7174362450181710360}
+  m_Layer: 8
   m_Name: enemy1_2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -59,15 +59,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6573995246788350037}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 19.73, y: 22.59, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4110562619524649825}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6573995246788350038
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -161,7 +161,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &5841743286110920111
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -178,7 +178,7 @@ CapsuleCollider2D:
   m_Offset: {x: 2.1138315e-15, y: -0.08624767}
   m_Size: {x: 2.4999895, y: 3.0724905}
   m_Direction: 0
---- !u!114 &-15260882146754531
+--- !u!114 &7174362450181710360
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,11 +187,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6573995246788350037}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdc02746adbec4d42bee014136dabaa9, type: 3}
+  m_Script: {fileID: 11500000, guid: aa50971a4a49b2a43a68f3387df39b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 0}
-  holdPoint: {fileID: 4110562619524649825}
+  enemyType: 0
+  weaponPrefab: {fileID: 0}
   clockwise: 0
   moving: 0
   guard: 0
@@ -199,3 +199,5 @@ MonoBehaviour:
   speed: 0
   check: {fileID: 0}
   shooting: 0
+  checkCollider: 
+  weaponHoldPoint: {fileID: 5503234884778688725}
