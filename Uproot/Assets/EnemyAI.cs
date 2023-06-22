@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
@@ -31,9 +32,15 @@ public class EnemyAI : MonoBehaviour
 
     public string checkCollider;
 
-    public GameObject weaponHoldPoint;
+    public Transform weaponHoldPoint;
     public GameObject weaponPrefab;
 
+    public GameObject weapon;//serialized nado sdelat
+
+    [SerializeField]
+    private float _period = 0.1f;
+
+    public float _timerFire;
 
     void Start()
     {
@@ -41,6 +48,10 @@ public class EnemyAI : MonoBehaviour
         playerLastPos = this.transform.position;
         rb = GetComponent<Rigidbody2D>();
         layermask = ~layermask;
+
+        weapon = Instantiate(weaponPrefab, weaponHoldPoint.transform.position, weaponHoldPoint.rotation);
+        weapon.transform.parent = weaponHoldPoint.transform;
+
     }
 
 
@@ -48,20 +59,24 @@ public class EnemyAI : MonoBehaviour
     {
         Movement();
         PlayerDetect();
+        _timerFire += Time.deltaTime;
     }
 
     void Movement()
     {
         float dist = Vector3.Distance (player.transform.position, this.transform.position);
-        Vector3 dir = player.transform.position - transform.position; //здесь надо возможно "- this.transform.position"
+        Vector3 dir = player.transform.position - transform.position; 
         hit = Physics2D.Raycast(new Vector2(this.transform.position.x, this.transform.position.y), new Vector2(dir.x, dir.y), dist, layermask);
-        Debug.DrawRay(transform.position, dir, Color.red); //тут тоже возможно this надо
+        Debug.DrawRay(transform.position, dir, Color.red); 
 
         Vector3 fwt = this.transform.TransformDirection(Vector3.up);
         RaycastHit2D hit2 = Physics2D.Raycast(new Vector2(this.transform.position.x, this.transform.position.y), new Vector2 (fwt.x, fwt.y), 2.0f, layermask);
         Debug.DrawRay(transform.position, fwt, Color.cyan);
-
-        checkCollider = hit.collider.gameObject.name;
+        
+        if (player != null)
+        {
+            checkCollider = hit.collider.gameObject.name; //из-за убийства игрока вылетают ошибки, надо поправить
+        }
 
         if (moving)
         {
@@ -93,15 +108,21 @@ public class EnemyAI : MonoBehaviour
         {
             speed = 15f;
             rb.transform.eulerAngles = new Vector3(0, 0, Mathf.Atan2((playerLastPos.y - transform.position.y), (playerLastPos.x - transform.position.x)) * Mathf.Rad2Deg - 90);
+            
+
 
             if (hit.transform.gameObject.layer == 9)
             {
                 playerLastPos = player.transform.position;
 
+                Shooting();
+
                 if (Vector3.Distance (transform.position, player.transform.position) <= 12f /*&& hit.collider.gameObject.tag == "Player"*/)
                 {
                     moving = false;
-                    //shooting надо тут реализовать и bool shooting менять на true
+
+                    //Shooting(); //короче я хз тут чето не так
+                    
                 }
                 else
                 {
@@ -110,8 +131,7 @@ public class EnemyAI : MonoBehaviour
                         moving = true;
                     }
                 }
-            }
-
+            }  
         }
         
         if (enemyType == EnemyType.goingToLastLoc)
@@ -123,9 +143,10 @@ public class EnemyAI : MonoBehaviour
 
                 rb.transform.eulerAngles = new Vector3(0, 0, Mathf.Atan2((playerLastPos.y - transform.position.y), (playerLastPos.x - transform.position.x)) * Mathf.Rad2Deg - 90);
 
-                if (Vector3.Distance(this.transform.position, playerLastPos) < 1.5f) //вот тут баг из-за андетекта из-за угла
+                if (Vector3.Distance(this.transform.position, playerLastPos) < 1.5f)
                 {
                     enemyType = EnemyType.patrol;
+                    
                 }
             }
             else
@@ -157,6 +178,9 @@ public class EnemyAI : MonoBehaviour
 
     void Shooting()
     {
-
+        if (_timerFire >= _period)
+        {
+            weapon.GetComponentInChildren<EnemyShooting>().EnemyShoot();
+        }
     }
 }

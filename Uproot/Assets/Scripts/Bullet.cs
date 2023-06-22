@@ -19,7 +19,13 @@ public class Bullet : MonoBehaviour
             Debug.Log($"You hitted a wall named {collision.collider}");
         }
 
-        
+        if (collision.transform.tag == "Player")
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            player.SetActive(false);
+        }
+
+
     }
 
     public void OnTriggerEnter2D(Collider2D collider)
@@ -39,6 +45,11 @@ public class Bullet : MonoBehaviour
             }
             Destroy(gameObject);
 
+        }
+
+        if (collider.transform.tag == "Player")
+        {
+            
         }
     }
 }

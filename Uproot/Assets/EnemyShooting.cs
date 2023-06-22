@@ -18,5 +18,7 @@ public class EnemyShooting : MonoBehaviour
         Rigidbody2D rigidBody = bullet.GetComponent<Rigidbody2D>();
         rigidBody.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
         Destroy(bullet, 2f);
+
+        GetComponentInParent<EnemyAI>()._timerFire = 0;
     }
 }

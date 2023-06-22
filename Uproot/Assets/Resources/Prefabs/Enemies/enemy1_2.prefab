@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4110562619524649825}
   m_Layer: 8
   m_Name: WeaponHoldPoint
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -191,7 +191,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
-  weaponPrefab: {fileID: 0}
   clockwise: 0
   moving: 0
   guard: 0
@@ -200,4 +199,5 @@ MonoBehaviour:
   check: {fileID: 0}
   shooting: 0
   checkCollider: 
-  weaponHoldPoint: {fileID: 5503234884778688725}
+  weaponHoldPoint: {fileID: 4110562619524649825}
+  weaponPrefab: {fileID: 0}
