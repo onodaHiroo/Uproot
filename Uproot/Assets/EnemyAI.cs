@@ -98,7 +98,7 @@ public class EnemyAI : MonoBehaviour
             {
                 playerLastPos = player.transform.position;
 
-                if (Vector3.Distance (transform.position, player.transform.position) <= 12f)
+                if (Vector3.Distance (transform.position, player.transform.position) <= 12f /*&& hit.collider.gameObject.tag == "Player"*/)
                 {
                     moving = false;
                     //shooting надо тут реализовать и bool shooting менять на true
@@ -116,13 +116,21 @@ public class EnemyAI : MonoBehaviour
         
         if (enemyType == EnemyType.goingToLastLoc)
         {
-            speed = 15f;
-
-            rb.transform.eulerAngles = new Vector3(0, 0, Mathf.Atan2((playerLastPos.y - transform.position.y), (playerLastPos.x - transform.position.x)) * Mathf.Rad2Deg - 90);
-
-            if (Vector3.Distance(this.transform.position, playerLastPos) < 1.5f)
+            if (!guard)
             {
-                enemyType = EnemyType.patrol;
+                moving = true;
+                speed = 15f;
+
+                rb.transform.eulerAngles = new Vector3(0, 0, Mathf.Atan2((playerLastPos.y - transform.position.y), (playerLastPos.x - transform.position.x)) * Mathf.Rad2Deg - 90);
+
+                if (Vector3.Distance(this.transform.position, playerLastPos) < 1.5f) //вот тут баг из-за андетекта из-за угла
+                {
+                    enemyType = EnemyType.patrol;
+                }
+            }
+            else
+            {
+                rb.transform.eulerAngles = new Vector3(0, 0, Mathf.Atan2((playerLastPos.y - transform.position.y), (playerLastPos.x - transform.position.x)) * Mathf.Rad2Deg - 90);
             }
         }
     }
