@@ -21,10 +21,19 @@ public class Bullet : MonoBehaviour
 
         if (collision.transform.tag == "Player")
         {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            player.SetActive(false);
+            Destroy(gameObject);
+            GameObject effect = Instantiate(hitEnemyEffect, transform.position, Quaternion.identity);
+            Destroy(effect, 0.1f);
+            //GameObject player = GameObject.FindGameObjectWithTag("Player");
+            //player.SetActive(false);
         }
 
+        if (collision.transform.tag == "Bullet")
+        {
+            Destroy(gameObject);
+            GameObject effect = Instantiate(hitWallEffect, transform.position, Quaternion.identity);
+            Destroy(effect, 0.5f);
+        }
 
     }
 
