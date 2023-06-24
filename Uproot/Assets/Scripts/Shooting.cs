@@ -16,7 +16,7 @@ public class Shooting : MonoBehaviour
     private float _period = 0.1f;
     private float _timerFire;
 
-    public string checkWeaponCollider;
+    public string wallCheckingTag;
 
     void Start()
     {
@@ -33,7 +33,6 @@ public class Shooting : MonoBehaviour
             if (bulletAmmo > 0)
             {
                 this.Shoot();
-                SoundOfShot();
             }  
         }
         _timerFire += Time.deltaTime;
@@ -41,13 +40,24 @@ public class Shooting : MonoBehaviour
 
     private void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Rigidbody2D rigidBody = bullet.GetComponent<Rigidbody2D>();
-        rigidBody.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
-        Destroy(bullet, 2f);
+        if (wallCheckingTag is "Wall")
+        {
+            SoundOfShot();
 
-        bulletAmmo -= 1;
-        _timerFire = 0;
+            bulletAmmo -= 1;
+            _timerFire = 0;
+        }
+        else
+        {
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            Rigidbody2D rigidBody = bullet.GetComponent<Rigidbody2D>();
+            rigidBody.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+            SoundOfShot();
+            Destroy(bullet, 2f);
+
+            bulletAmmo -= 1;
+            _timerFire = 0;
+        }
     }
 
     private void SoundOfShot()
@@ -58,10 +68,11 @@ public class Shooting : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        checkWeaponCollider = collider.name;
+        wallCheckingTag = collider.gameObject.tag;
+
     }
     private void OnTriggerExit2D(Collider2D collider)
     {
-        checkWeaponCollider = "";
+        wallCheckingTag = null;
     }
 }
