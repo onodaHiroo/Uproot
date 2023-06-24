@@ -95,6 +95,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4908600463371665487, guid: 4c20f5fe78f18fe4f859eac6748fe455, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6326487499068222330, guid: 4c20f5fe78f18fe4f859eac6748fe455, type: 3}
       propertyPath: _soundOfShot
       value: 
@@ -111,7 +115,8 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 11
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4908600463371665487, guid: 4c20f5fe78f18fe4f859eac6748fe455, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4c20f5fe78f18fe4f859eac6748fe455, type: 3}
 --- !u!4 &7198214955084264447 stripped
 Transform:

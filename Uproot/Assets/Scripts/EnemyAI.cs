@@ -55,7 +55,7 @@ public class EnemyAI : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
         Movement();
         PlayerDetect();
