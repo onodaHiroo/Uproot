@@ -16,6 +16,8 @@ public class Shooting : MonoBehaviour
     private float _period = 0.1f;
     private float _timerFire;
 
+    public string checkWeaponCollider;
+
     void Start()
     {
         _timerFire = _period;
@@ -52,5 +54,14 @@ public class Shooting : MonoBehaviour
     {
         GameObject shotSound = Instantiate(_soundOfShot, transform.position, Quaternion.identity);
         Destroy(shotSound, 2f);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        checkWeaponCollider = collider.name;
+    }
+    private void OnTriggerExit2D(Collider2D collider)
+    {
+        checkWeaponCollider = "";
     }
 }

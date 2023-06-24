@@ -2,6 +2,7 @@ using Newtonsoft.Json.Bson;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -20,8 +21,8 @@ public class TakeAndDropWeapon : MonoBehaviour
 
     public static bool withWeapon = false;
 
-
-
+    //private string checkRegex;
+    //private string checkCheckRegex;
 
     void Start()
     {
@@ -124,7 +125,19 @@ public class TakeAndDropWeapon : MonoBehaviour
 
     public void SpawnHoldingWeapon()
     {
-        GameObject tempcurrentWeapon = Resources.Load<GameObject>($"Prefabs/Guns/Holding/holding_{whichWeaponWeOn.name.Replace("(Clone)", "")}");
+        //для изменения при нахождении AK (1) к примеру потому что не может инстантиироваться AK (1) тк такого имени нет, однако тогда кол-во патронов суммируется с прошлым (баг)
+        //if (Regex.Match(whichWeaponWeOn.name, @"\s\(.\)").Success)
+        //{
+        //    checkRegex = Regex.Replace(whichWeaponWeOn.name, @"\(.\)", "");
+        //    checkCheckRegex = whichWeaponWeOn.name.Replace($"{checkRegex}", ""); 
+        //}
+        //else
+        //{
+        //    checkRegex = "";
+        //    checkCheckRegex = "";
+        //}
+        
+        GameObject tempcurrentWeapon = Resources.Load<GameObject>($"Prefabs/Guns/Holding/holding_{whichWeaponWeOn.name.Replace("(Clone)", "")/*.Replace($" {checkCheckRegex}", "")*/}");
         GameObject weapon = Instantiate(tempcurrentWeapon, holdPoint.transform.position, holdPoint.rotation);
         weapon.transform.parent = holdPoint.transform;
         currentWeapon = weapon;
