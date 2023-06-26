@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rigidBody2D;
     private Vector2 movement;
 
+    public bool isMoving;
+
     public Camera cam;
     Vector2 mousePos;
 
@@ -28,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
 
         ChangeCamPos(true);
+        MovementCheck();
+
     }
 
     void FixedUpdate()
@@ -44,6 +48,18 @@ public class PlayerMovement : MonoBehaviour
         if (val)
         {
             mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        }
+        
+    }
+    private void MovementCheck()
+    {
+        if (movement != new Vector2(0, 0))
+        {
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
         }
     }
 

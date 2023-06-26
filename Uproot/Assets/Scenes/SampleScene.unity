@@ -1059,6 +1059,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1146,6 +1147,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followTransform: {fileID: 1953374577}
   followPlayer: 1
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af88831bffddf84496e7d76f8c8672f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &600258485 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8157334873798716548, guid: c559f47afc3eb3040be7c789cd87292a, type: 3}
@@ -3413,8 +3426,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d790a662de61b44796e503c961182ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 20
+  moveSpeed: 25
   rigidBody2D: {fileID: 1953374574}
+  isMoving: 0
   cam: {fileID: 519420031}
   runningAnimator: {fileID: 0}
 --- !u!50 &1953374574

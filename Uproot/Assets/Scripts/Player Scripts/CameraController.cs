@@ -58,14 +58,13 @@ public class CameraController : MonoBehaviour
 
     private void LookAhead()
     {
-        Vector3 canPos = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y));
-        //canPos.z = -10;
-        Vector3 dir = canPos - this.transform.position;
+        Vector3 camPos = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y));
+        camPos.z = -10;
+        Vector3 dir = camPos - this.transform.position;
         if (player.GetComponent<SpriteRenderer>().isVisible == true) //при смерит здесь может быть по-другому
         {
-            transform.Translate(dir*2*Time.deltaTime);
+            transform.Translate(dir * 2 * Time.deltaTime);
         }
-
     }
 
 
