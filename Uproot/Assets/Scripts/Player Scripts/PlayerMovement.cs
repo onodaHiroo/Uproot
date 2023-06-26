@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        ChangeCamPos(true);
     }
 
     void FixedUpdate()
@@ -38,4 +38,15 @@ public class PlayerMovement : MonoBehaviour
         float rotateAngle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         rigidBody2D.rotation = rotateAngle;        
     }
+
+    public void ChangeCamPos(bool val)
+    {
+        if (val)
+        {
+            mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        }
+    }
+
+
+
 }

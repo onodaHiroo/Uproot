@@ -1145,6 +1145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followTransform: {fileID: 1953374577}
+  followPlayer: 1
 --- !u!4 &600258485 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8157334873798716548, guid: c559f47afc3eb3040be7c789cd87292a, type: 3}
@@ -2294,7 +2295,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -511.80164, y: -286.52277}
+  m_AnchoredPosition: {x: -517, y: -290}
   m_SizeDelta: {x: 143.7016, y: 60.5809}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1463019811
@@ -2311,7 +2312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2637,7 +2638,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7174362450181710360, guid: 5e87240e3d34bb44e98ac9c2629aaec7, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7174362450181710360, guid: 5e87240e3d34bb44e98ac9c2629aaec7, type: 3}
       propertyPath: weaponPrefab
@@ -3467,7 +3468,7 @@ CircleCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.10993421}
   serializedVersion: 2
