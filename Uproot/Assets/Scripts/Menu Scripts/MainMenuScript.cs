@@ -12,6 +12,7 @@ public class MainMenuScript : MonoBehaviour
 
     public void Quit()
     {
+        Debug.Log("Yo exited the game");
         Application.Quit();
     }
 }

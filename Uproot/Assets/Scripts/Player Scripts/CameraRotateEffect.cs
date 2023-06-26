@@ -5,7 +5,6 @@ using UnityEngine;
 public class CameraRotateEffect : MonoBehaviour
 {
     PlayerMovement pm;
-    float timer = 0.1f;
     float mod = 0.002f;
     float zVal = 0.0f;
 
@@ -23,13 +22,13 @@ public class CameraRotateEffect : MonoBehaviour
 
             zVal += mod;
 
-            if (transform.eulerAngles.z >= 2.0f && transform.eulerAngles.z < 7.0f)
+            if (transform.eulerAngles.z >= 2.0f && transform.eulerAngles.z < 7.0f) //чтобы поменьше качалось менять тут
             {
-                mod = -0.002f;
+                mod = -0.002f; //и тут
             }
-            else if (transform.eulerAngles.z < 358.0f && transform.eulerAngles.z > 353.0f)
+            else if (transform.eulerAngles.z < 358.0f && transform.eulerAngles.z > 353.0f) //и тут
             {
-                mod = 0.002f;
+                mod = 0.002f; //и тут
             }
             
         }
