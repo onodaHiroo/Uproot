@@ -16,7 +16,7 @@ public class checkIfPause : MonoBehaviour
         tadw = GetComponent<TakeAndDropWeapon>();
         punching = GetComponent<Punching>();
         anim = GetComponentInChildren<WalkingAnimation>();
-        cameraRotation = GetComponent<CameraRotateEffect>();
+        cameraRotation = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraRotateEffect>();
     }
 
 

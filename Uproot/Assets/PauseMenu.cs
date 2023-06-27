@@ -9,6 +9,8 @@ public class PauseMenu : MonoBehaviour
     public bool pauseGame;
     public GameObject pauseGameMenu;
     public GameObject pauseButton;
+    public GameObject pauseButtonsMenu;
+    public GameObject pauseSettingsMenu;
 
     void Update()
     {
@@ -29,6 +31,8 @@ public class PauseMenu : MonoBehaviour
     {
         pauseGameMenu.SetActive(false);
         pauseButton.SetActive(true);
+        pauseButtonsMenu.SetActive(true);
+        pauseSettingsMenu.SetActive(false);
         Time.timeScale = 1f;
         pauseGame = false;
     }
