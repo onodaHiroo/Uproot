@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Weapon
   - Bullet
+  - Music Toggle
+  - Music Slider
   layers:
   - Default
   - TransparentFX
