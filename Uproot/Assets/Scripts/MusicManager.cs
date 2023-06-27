@@ -50,8 +50,12 @@ public class MusicManager : MonoBehaviour
     private void ValueMusic()
     {
         audio.volume = volume;
-        sliderVolumeMusic.value = volume;
-        if (volume == 0) { toggleMusic.isOn= false; } else { toggleMusic.isOn= true; }
+        if (sliderVolumeMusic != null && toggleMusic != null)
+        {
+            sliderVolumeMusic.value = volume;
+            if (volume == 0) { toggleMusic.isOn = false; } else { toggleMusic.isOn = true; }
+        }
+        
     }
 
     private void Save()
