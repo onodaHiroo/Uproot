@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MusicManager : MonoBehaviour
@@ -11,6 +12,21 @@ public class MusicManager : MonoBehaviour
     public AudioSource audio;
     public float volume;
     public GameObject SettingsWindow;
+
+
+    void Awake()
+    {
+        GameObject obj = GameObject.FindWithTag("MusicObjectCreated");
+        if (obj != null)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            this.gameObject.tag = "MusicObjectCreated";
+            DontDestroyOnLoad(gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
