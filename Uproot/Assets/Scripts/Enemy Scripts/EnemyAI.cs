@@ -57,9 +57,12 @@ public class EnemyAI : MonoBehaviour
 
     void FixedUpdate()
     {
-        Movement();
-        PlayerDetect();
-        _timerFire += Time.deltaTime;
+        if (player != null)
+        {
+            Movement();
+            PlayerDetect();
+            _timerFire += Time.deltaTime;
+        }
     }
 
     void Movement()

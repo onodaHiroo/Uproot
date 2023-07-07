@@ -10,6 +10,7 @@ TagManager:
   - Bullet
   - Music Toggle
   - Music Slider
+  - LevelManager
   layers:
   - Default
   - TransparentFX

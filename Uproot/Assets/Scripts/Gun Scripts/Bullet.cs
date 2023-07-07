@@ -1,4 +1,4 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,6 +24,8 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
             GameObject effect = Instantiate(hitEnemyEffect, transform.position, Quaternion.identity);
             Destroy(effect, 0.1f);
+            GameObject player = collision.gameObject;
+            player.GetComponent<PlayerDeath>().Death();
             //GameObject player = GameObject.FindGameObjectWithTag("Player");
             //player.SetActive(false);
         }

@@ -52,8 +52,11 @@ public class CameraController : MonoBehaviour
 
     void CanFollowPlayer()
     {
-        Vector3 newPos = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
-        this.transform.position = newPos;
+        if (player != null)
+        {
+            Vector3 newPos = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
+            this.transform.position = newPos;
+        }   
     }
 
     private void LookAhead()

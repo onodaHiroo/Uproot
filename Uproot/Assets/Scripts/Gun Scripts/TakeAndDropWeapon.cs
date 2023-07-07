@@ -26,6 +26,7 @@ public class TakeAndDropWeapon : MonoBehaviour
 
     void Start()
     {
+        currentWeapon = null;
         spriteRenderer = GameObject.Find("Player").GetComponent<SpriteRenderer>();
         _onlyBody = GameObject.Find("OnlyBody");
         _onlyBody.SetActive(false);
