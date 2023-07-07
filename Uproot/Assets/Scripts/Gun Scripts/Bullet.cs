@@ -37,6 +37,11 @@ public class Bullet : MonoBehaviour
             Destroy(effect, 0.5f);
         }
 
+        if (collision.transform.tag != "Wall" && collision.transform.tag != "Player" && collision.transform.tag != "Bullet") //колхоз но похуй 2 ночи уже
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     public void OnTriggerEnter2D(Collider2D collider)
@@ -58,9 +63,9 @@ public class Bullet : MonoBehaviour
 
         }
 
-        if (collider.transform.tag == "Player")
-        {
+        //if (collider.transform.tag == "Player")
+        //{
             
-        }
+        //}
     }
 }

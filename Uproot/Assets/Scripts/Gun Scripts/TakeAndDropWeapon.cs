@@ -24,9 +24,14 @@ public class TakeAndDropWeapon : MonoBehaviour
     //private string checkRegex;
     //private string checkCheckRegex;
 
-    void Start()
+    private void Awake()
     {
         currentWeapon = null;
+        withWeapon = false;
+    }
+
+    void Start()
+    {
         spriteRenderer = GameObject.Find("Player").GetComponent<SpriteRenderer>();
         _onlyBody = GameObject.Find("OnlyBody");
         _onlyBody.SetActive(false);
@@ -38,9 +43,10 @@ public class TakeAndDropWeapon : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             WeaponManager();
-            AmmoTextUi.checkIfWithWeapon = withWeapon;
-            Punching.withWeaponOn = withWeapon;
-        }   
+        }
+
+        AmmoTextUi.checkIfWithWeapon = withWeapon;
+        Punching.withWeaponOn = withWeapon;
     }
 
     private void WeaponManager()

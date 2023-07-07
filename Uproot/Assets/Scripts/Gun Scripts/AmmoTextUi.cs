@@ -20,7 +20,7 @@ public class AmmoTextUi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ammoBullets == 0 && sizeClip == 0 && checkIfWithWeapon == false)
+        if (checkIfWithWeapon == false)
         {
             text.text = "";
         }
