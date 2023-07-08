@@ -14,40 +14,27 @@ public class MusicManager : MonoBehaviour
     public GameObject SettingsWindow;
 
 
-    void Awake()
-    {
-        GameObject obj = GameObject.FindWithTag("MusicObjectCreated");
-        if (obj != null)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            this.gameObject.tag = "MusicObjectCreated";
-            DontDestroyOnLoad(gameObject);
-        }
-    }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Load();
         ValueMusic();
 
-        if (SettingsWindow.activeSelf == true)
-        {
-            toggleMusic = GameObject.FindGameObjectWithTag("Music Toggle").GetComponent<Toggle>();
-            sliderVolumeMusic = GameObject.FindGameObjectWithTag("Music Slider").GetComponent<Slider>();
-        }
+        //if (SettingsWindow.activeSelf == true)
+        //{
+        //    toggleMusic = GameObject.FindGameObjectWithTag("Music Toggle").GetComponent<Toggle>();
+        //    sliderVolumeMusic = GameObject.FindGameObjectWithTag("Music Slider").GetComponent<Slider>();
+        //}
         
     }
 
    public void SliderMusic()
-    {
+   {
         volume = sliderVolumeMusic.value;
         Save();
         ValueMusic();
-    }
+   }
 
     public void ToggleMusic()
     {

@@ -111,6 +111,10 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6356740012157224554, guid: 4c20f5fe78f18fe4f859eac6748fe455, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 9006797143476380242, guid: 952f06de00298204ab057326652c36ac, type: 2}
     - target: {fileID: 7815680153740478960, guid: 4c20f5fe78f18fe4f859eac6748fe455, type: 3}
       propertyPath: m_SortingOrder
       value: 11

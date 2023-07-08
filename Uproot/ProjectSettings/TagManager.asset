@@ -11,7 +11,9 @@ TagManager:
   - Music Toggle
   - Music Slider
   - LevelManager
-  - MusicObject
+  - MusicObjectCreated
+  - PauseSettingsWindow
+  - RestartText
   layers:
   - Default
   - TransparentFX
