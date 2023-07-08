@@ -21,15 +21,18 @@ public class MusicManager : MonoBehaviour
         Load();
         ValueMusic();
 
-        //if (SettingsWindow.activeSelf == true)
-        //{
-        //    toggleMusic = GameObject.FindGameObjectWithTag("Music Toggle").GetComponent<Toggle>();
-        //    sliderVolumeMusic = GameObject.FindGameObjectWithTag("Music Slider").GetComponent<Slider>();
-        //}
-        
     }
 
-   public void SliderMusic()
+    private void Update()
+    {
+        if (SettingsWindow.activeSelf == true)
+        {
+            toggleMusic = GameObject.FindGameObjectWithTag("Music Toggle").GetComponent<Toggle>();
+            sliderVolumeMusic = GameObject.FindGameObjectWithTag("Music Slider").GetComponent<Slider>();
+        }
+    }
+
+    public void SliderMusic()
    {
         volume = sliderVolumeMusic.value;
         Save();
