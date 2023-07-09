@@ -1407,7 +1407,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &451709311
 PrefabInstance:
@@ -1792,6 +1792,7 @@ GameObject:
   m_Component:
   - component: {fileID: 544250906}
   - component: {fileID: 544250907}
+  - component: {fileID: 544250908}
   m_Layer: 5
   m_Name: Music Volume Slider
   m_TagString: Music Slider
@@ -1885,6 +1886,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &544250908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544250905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8575f8eb28d30c4bb0afc4a50192da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  referenceToMusicObject: {fileID: 0}
 --- !u!4 &600258485 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8157334873798716548, guid: c559f47afc3eb3040be7c789cd87292a, type: 3}
@@ -2397,6 +2411,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1012383502}
   - component: {fileID: 1012383503}
+  - component: {fileID: 1012383504}
   m_Layer: 5
   m_Name: Music Volume Toggle
   m_TagString: Music Toggle
@@ -2485,6 +2500,19 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 1
+--- !u!114 &1012383504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012383501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 831e1c873df93c84f9286f734692da56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  referenceToMusicObject: {fileID: 0}
 --- !u!4 &1022140609 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1429593489728258747, guid: af0971fd2a59fec47837e246900f5ceb, type: 3}
@@ -3999,13 +4027,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1470435898}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 7.864441, y: 9.302582, z: 29883.102}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1470435901
 MonoBehaviour:
@@ -4022,7 +4050,7 @@ MonoBehaviour:
   toggleMusic: {fileID: 1012383503}
   sliderVolumeMusic: {fileID: 544250907}
   audio: {fileID: 1470435899}
-  volume: 100
+  volume: 1
   SettingsWindow: {fileID: 1405830607}
 --- !u!114 &1470435902
 MonoBehaviour:
@@ -4038,6 +4066,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nowSceneIndexInfo: 0
   lastSceneIndexInfo: 0
+  referenceToSliderComponent: {fileID: 0}
 --- !u!114 &1470435903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5253,7 +5282,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1749559330 stripped
 Transform:

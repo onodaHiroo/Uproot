@@ -20,12 +20,13 @@ public class MusicManager : MonoBehaviour
     {
         Load();
         ValueMusic();
-
     }
 
     private void Update()
     {
-        if (SettingsWindow.activeSelf == true)
+        SettingsWindow = GameObject.FindGameObjectWithTag("PauseSettingsWindow");
+
+        if (SettingsWindow != null)
         {
             toggleMusic = GameObject.FindGameObjectWithTag("Music Toggle").GetComponent<Toggle>();
             sliderVolumeMusic = GameObject.FindGameObjectWithTag("Music Slider").GetComponent<Slider>();
@@ -33,11 +34,11 @@ public class MusicManager : MonoBehaviour
     }
 
     public void SliderMusic()
-   {
+    {
         volume = sliderVolumeMusic.value;
         Save();
         ValueMusic();
-   }
+    }
 
     public void ToggleMusic()
     {

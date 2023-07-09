@@ -1,13 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BacgroundControllerInstanceComponent : MonoBehaviour
 {
+    [Header("Check between scenes")]
     [SerializeField] private int nowSceneIndexInfo;
     [SerializeField] private int lastSceneIndexInfo;
+
+    [Header("Check references")]
+    [SerializeField] private Slider referenceToSliderComponent;
+    //[SerializeField] private Toggle referenceToTogleComponent;
+
+
     void Awake()
     {
         lastSceneIndexInfo = SceneManager.GetActiveScene().buildIndex;
@@ -24,9 +32,6 @@ public class BacgroundControllerInstanceComponent : MonoBehaviour
             this.gameObject.tag = "MusicObjectCreated";
             DontDestroyOnLoad(gameObject);
         }
-
-        //gameObject.GetComponent<MusicManager>().toggleMusic = GameObject.FindGameObjectWithTag("Music Toggle").GetComponent<Toggle>();
-
     }
 
     private void Update()
@@ -38,6 +43,5 @@ public class BacgroundControllerInstanceComponent : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        
     }
 }
