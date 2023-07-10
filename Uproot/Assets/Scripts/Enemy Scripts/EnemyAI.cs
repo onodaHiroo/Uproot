@@ -24,7 +24,7 @@ public class EnemyAI : MonoBehaviour
 
     public float speed;
 
-    int layermask = 1 << 8;
+    int layermask = 3 << 8;
 
     public Transform check;
 
@@ -93,7 +93,7 @@ public class EnemyAI : MonoBehaviour
             
             if (hit2.collider != null)
             {
-                if (hit2.collider.gameObject.layer == 10)
+                if (hit2.collider.gameObject.layer == 11)
                 {
                     if (!clockwise)
                     {
@@ -114,7 +114,7 @@ public class EnemyAI : MonoBehaviour
             
 
 
-            if (hit.transform.gameObject.layer == 9)
+            if (hit.transform.gameObject.layer == 10)
             {
                 playerLastPos = player.transform.position;
 
@@ -165,7 +165,7 @@ public class EnemyAI : MonoBehaviour
 
         if (hit.collider != null)
         {
-            if (hit.transform.gameObject.layer == 9 && /*pos.y > 1.0f &&*/ Vector3.Distance(this.transform.position, player.transform.position) < 50.0f)
+            if (hit.transform.gameObject.layer == 10 && /*pos.y > 1.0f &&*/ Vector3.Distance(this.transform.position, player.transform.position) < 50.0f)
             {
                 enemyType = EnemyType.pursingPlayer;
             }

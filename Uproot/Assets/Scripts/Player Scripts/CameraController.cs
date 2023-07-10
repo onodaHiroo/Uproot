@@ -12,6 +12,9 @@ public class CameraController : MonoBehaviour
     Vector3 mousePos;
     Camera cam;
 
+    [Header("Limits")]
+    [SerializeField] private float checkDist;
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -24,7 +27,7 @@ public class CameraController : MonoBehaviour
     {
         //transform.position = new Vector3(followTransform.position.x, followTransform.position.y, transform.position.z);
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && player != null)
         {
             followPlayer = false;
             pm.ChangeCamPos(false);
@@ -61,14 +64,20 @@ public class CameraController : MonoBehaviour
 
     private void LookAhead()
     {
-        Vector3 camPos = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y));
+        Vector3 camPos = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
         camPos.z = -10;
         Vector3 dir = camPos - this.transform.position;
-        if (player.GetComponent<SpriteRenderer>().isVisible == true) //при смерит здесь может быть по-другому
+
+        checkDist = Vector3.Distance(cam.transform.position, player.transform.position);
+
+        if (player.GetComponent<SpriteRenderer>().isVisible == true /* && checkDist <= 28*/) //при смерит здесь может быть по-другому
         {
             transform.Translate(dir * 2 * Time.deltaTime);
         }
+        else
+        {
+            //КАК!??!?
+        }
     }
-
 
 }

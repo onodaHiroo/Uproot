@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 9060867596903848563}
   - component: {fileID: 9060867596903848562}
   - component: {fileID: 6341076311921522940}
+  - component: {fileID: 7668106121256779185}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -176,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d790a662de61b44796e503c961182ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 25
+  moveSpeed: 40
   rigidBody2D: {fileID: 9060867596903848551}
   isMoving: 0
   cam: {fileID: 0}
@@ -542,6 +543,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerDeathBody: {fileID: 1935752074975237515, guid: 82f9e465b5e0bf244a6faa6565bec1be, type: 3}
   isDead: 0
+--- !u!114 &7668106121256779185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060867596903848547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af2b13fe7d0bfc34eb97ec5ff0836b6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  scoreText: {fileID: 0}
 --- !u!1 &9060867597392236046
 GameObject:
   m_ObjectHideFlags: 0

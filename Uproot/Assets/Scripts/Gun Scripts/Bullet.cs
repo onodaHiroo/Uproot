@@ -62,10 +62,5 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
 
         }
-
-        //if (collider.transform.tag == "Player")
-        //{
-            
-        //}
     }
 }

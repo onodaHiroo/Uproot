@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -22,6 +23,13 @@ public class Enemy : MonoBehaviour
 
     public bool stunned;
 
+    public GameObject weapon;
+    public bool ifStunTimerIsOver = true;
+
+    private void Awake()
+    {
+        weapon = GetComponent<EnemyAI>().weaponPrefab;
+    }
 
     void Start()
     {
@@ -43,6 +51,14 @@ public class Enemy : MonoBehaviour
         GameObject enemyDead = Instantiate(deadBody, transform.position, transform.rotation);
         GameObject flowingBlood = Instantiate(deadBodyBloodAnim, transform.position, transform.rotation);
         Debug.Log($"{gameObject} is dead");
+
+        FindObjectOfType<CountDownTheScore>().gameObject.GetComponent<CountDownTheScore>().score += 500;
+        
+        GameObject spawnedWeapon = Resources.Load<GameObject>($"Prefabs/Guns/Common/{weapon.name.Replace("holding_", "").Replace("(Clone)", "")}");
+        GameObject lyingWeapon = Instantiate(spawnedWeapon, transform.position, Quaternion.identity);
+        lyingWeapon.name = $"{lyingWeapon.name.Replace("(Clone)", "")}"; //to give them their full ammo
+
+
     }
 
     public void TakeDamage(float damage)
@@ -66,6 +82,23 @@ public class Enemy : MonoBehaviour
         timer.stunTime = time;
         timer.enemy = this;
 
-        GetComponent<EnemyAI>().moving = true;
+        GameObject spawnedWeapon = Resources.Load<GameObject>($"Prefabs/Guns/Common/{weapon.name.Replace("holding_", "").Replace("(Clone)", "")}");
+        GameObject lyingWeapon = Instantiate(spawnedWeapon, transform.position, Quaternion.identity);
+        lyingWeapon.name = $"{lyingWeapon.name.Replace("(Clone)", "")}"; //to give them their full ammo
+
+        gameObject.GetComponent<EnemyAI>().guard = true;
+        
+        //gameObject.GetComponent<EnemyAI>().moving = false;
+
+        if (ifStunTimerIsOver) 
+        { 
+            Destroy(lyingWeapon);
+            //gameObject.GetComponent<EnemyAI>().weapon = null;
+        }
+
+        GetComponent<EnemyAI>().moving = false;
+        gameObject.GetComponent<EnemyAI>().enemyType = EnemyAI.EnemyType.patrol;
     }
+
+   
 }

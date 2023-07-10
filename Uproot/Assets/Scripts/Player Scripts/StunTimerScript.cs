@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class StunTimerScript : MonoBehaviour
@@ -12,6 +13,7 @@ public class StunTimerScript : MonoBehaviour
     {
         Debug.Log($"Stun time: {stunTime} sec");
         //stunTime += Time.deltaTime * 2;
+        enemy.ifStunTimerIsOver = false;
     }
 
     void Update()
@@ -25,7 +27,9 @@ public class StunTimerScript : MonoBehaviour
         if (stunTime <= 0)
         {
             enemy.gameObject.SetActive(true);
+            enemy.ifStunTimerIsOver = true;
             Destroy(gameObject);
+            
         }
     }
 

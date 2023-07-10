@@ -20,7 +20,7 @@ public class PlayerDeath : MonoBehaviour
         //gameObject.SetActive(false);
         Destroy(gameObject);
         isDead = true;
-        Instantiate(playerDeathBody, transform.position, Quaternion.identity);
+        Instantiate(playerDeathBody, transform.position, transform.rotation);
         restartText.GetComponent<Text>().enabled = true;
     }
 

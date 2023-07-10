@@ -24,9 +24,9 @@ TagManager:
   - 
   - 
   - Enemy
+  - Other (Ignore Enemy Raycasts)
   - Player
   - Wall
-  - 
   - 
   - PauseMenu
   - 
