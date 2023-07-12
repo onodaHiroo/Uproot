@@ -13,6 +13,7 @@ public class SoundsManager : MonoBehaviour
     public AudioMixer mixer;
     public Slider slider;
     public Toggle toggleVolumeSounds;
+    public GameObject SettingsWindow;
 
     [Header("Saved  Values")]
     [SerializeField] private float volumeValueSave;
@@ -36,8 +37,12 @@ public class SoundsManager : MonoBehaviour
 
     private void Update()
     {
-        if (toggleVolumeSounds == null)
-            toggleVolumeSounds = GameObject.FindGameObjectWithTag("Sounds Toggle").GetComponent<Toggle>();
+        SettingsWindow = GameObject.FindGameObjectWithTag("PauseSettingsWindow");
+        if (SettingsWindow != null)
+        {
+            if (toggleVolumeSounds == null)
+                toggleVolumeSounds = GameObject.FindWithTag("Sounds Toggle").GetComponent<Toggle>();
+        }
     }
 
     public void ToggleSounds()

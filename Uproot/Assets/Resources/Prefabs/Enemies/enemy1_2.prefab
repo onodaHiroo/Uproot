@@ -141,6 +141,8 @@ MonoBehaviour:
   _timeInStun: 0
   _timerStartPunched: 0
   stunned: 0
+  weapon: {fileID: 0}
+  ifStunTimerIsOver: 0
 --- !u!50 &-3379583217113989954
 Rigidbody2D:
   serializedVersion: 4
@@ -204,3 +206,4 @@ MonoBehaviour:
   weapon: {fileID: 0}
   _period: 0.1
   _timerFire: 0
+  canShoot: 1

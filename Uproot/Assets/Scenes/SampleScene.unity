@@ -3828,6 +3828,7 @@ MonoBehaviour:
   mixer: {fileID: 24100000, guid: 952f06de00298204ab057326652c36ac, type: 2}
   slider: {fileID: 1375475957}
   toggleVolumeSounds: {fileID: 319127208}
+  SettingsWindow: {fileID: 1405830607}
   volumeValueSave: 0
   valueSave: 0
 --- !u!1001 &1390471826

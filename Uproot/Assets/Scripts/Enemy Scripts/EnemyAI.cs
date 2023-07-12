@@ -42,6 +42,8 @@ public class EnemyAI : MonoBehaviour
 
     public float _timerFire;
 
+    public bool canShoot = true;
+
     void Start()
     {
         player = GameObject.FindObjectOfType<PlayerMovement>().gameObject;
@@ -118,7 +120,10 @@ public class EnemyAI : MonoBehaviour
             {
                 playerLastPos = player.transform.position;
 
-                Shooting();
+                if (canShoot)
+                {
+                    Shooting();
+                }
 
                 if (Vector3.Distance (transform.position, player.transform.position) <= 12f /*&& hit.collider.gameObject.tag == "Player"*/)
                 {

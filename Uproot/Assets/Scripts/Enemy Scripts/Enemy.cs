@@ -24,7 +24,8 @@ public class Enemy : MonoBehaviour
     public bool stunned;
 
     public GameObject weapon;
-    public bool ifStunTimerIsOver = true;
+    private GameObject weaponUnder;
+    public bool ifStunTimerIsOver = false;
 
     private void Awake()
     {
@@ -42,7 +43,19 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //after the stun
+        if (ifStunTimerIsOver == true)
+        {
+            stunned = false;
+            Debug.Log("stun time is over");
+            //Destroy(weaponUnder.gameObject);
+
+            if (weapon != null)
+            {
+                //Destroy(GetComponentInChildren<EnemyShooting>().gameObject);
+            }
+            ifStunTimerIsOver = false;
+        }
     }
 
     private void EnemyDead()
@@ -54,11 +67,15 @@ public class Enemy : MonoBehaviour
 
         FindObjectOfType<CountDownTheScore>().gameObject.GetComponent<CountDownTheScore>().score += 500;
         
-        GameObject spawnedWeapon = Resources.Load<GameObject>($"Prefabs/Guns/Common/{weapon.name.Replace("holding_", "").Replace("(Clone)", "")}");
-        GameObject lyingWeapon = Instantiate(spawnedWeapon, transform.position, Quaternion.identity);
-        lyingWeapon.name = $"{lyingWeapon.name.Replace("(Clone)", "")}"; //to give them their full ammo
+        if (weapon != null )
+        {
+            Destroy(GetComponentInChildren<EnemyShooting>().gameObject);
 
-
+            GameObject spawnedWeapon = Resources.Load<GameObject>($"Prefabs/Guns/Common/{weapon.name.Replace("holding_", "").Replace("(Clone)", "")}");
+            GameObject lyingWeapon = Instantiate(spawnedWeapon, transform.position, Quaternion.identity);
+            lyingWeapon.name = $"{lyingWeapon.name.Replace("(Clone)", "")}"; //to give them their full ammo
+        }
+       
     }
 
     public void TakeDamage(float damage)
@@ -81,20 +98,28 @@ public class Enemy : MonoBehaviour
         StunTimerScript timer = Instantiate(stunTimer, transform.position, Quaternion.identity);
         timer.stunTime = time;
         timer.enemy = this;
+        
+        if (weapon != null )
+        {
+            Destroy(GetComponentInChildren<EnemyShooting>().gameObject);
 
-        GameObject spawnedWeapon = Resources.Load<GameObject>($"Prefabs/Guns/Common/{weapon.name.Replace("holding_", "").Replace("(Clone)", "")}");
-        GameObject lyingWeapon = Instantiate(spawnedWeapon, transform.position, Quaternion.identity);
-        lyingWeapon.name = $"{lyingWeapon.name.Replace("(Clone)", "")}"; //to give them their full ammo
+            GameObject spawnedWeapon = Resources.Load<GameObject>($"Prefabs/Guns/Common/{weapon.name.Replace("holding_", "").Replace("(Clone)", "")}");
+            GameObject lyingWeapon = Instantiate(spawnedWeapon, transform.position, Quaternion.identity);
+            lyingWeapon.name = $"{lyingWeapon.name.Replace("(Clone)", "")}"; //to give them their full ammo
+        }
+
+        //weaponUnder = lyingWeapon;
+
+        gameObject.GetComponent<Enemy>().weapon = null;
+        gameObject.GetComponent<EnemyAI>().weapon = null;
+        gameObject.GetComponent<EnemyAI>().weaponPrefab = null;
+        gameObject.GetComponent<EnemyAI>().canShoot = false;
 
         gameObject.GetComponent<EnemyAI>().guard = true;
         
         //gameObject.GetComponent<EnemyAI>().moving = false;
 
-        if (ifStunTimerIsOver) 
-        { 
-            Destroy(lyingWeapon);
-            //gameObject.GetComponent<EnemyAI>().weapon = null;
-        }
+        
 
         GetComponent<EnemyAI>().moving = false;
         gameObject.GetComponent<EnemyAI>().enemyType = EnemyAI.EnemyType.patrol;
