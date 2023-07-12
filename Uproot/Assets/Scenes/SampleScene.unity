@@ -1072,7 +1072,6 @@ GameObject:
   m_Component:
   - component: {fileID: 319127207}
   - component: {fileID: 319127208}
-  - component: {fileID: 319127209}
   m_Layer: 5
   m_Name: Sound Volume Toggle
   m_TagString: Untagged
@@ -1148,7 +1147,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 319127209}
+      - m_Target: {fileID: 1375475958}
         m_TargetAssemblyTypeName: SoundsManager, Assembly-CSharp
         m_MethodName: ToggleSounds
         m_Mode: 1
@@ -1161,24 +1160,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 1
---- !u!114 &319127209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 319127206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f074af698c1f4a458abab99f0b7bfd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeParameter: SFXVol
-  mixer: {fileID: 24100000, guid: 952f06de00298204ab057326652c36ac, type: 2}
-  slider: {fileID: 1375475957}
-  toggleSounds: {fileID: 319127208}
-  volumeValueSave: 0
-  valueSave: 0
 --- !u!1001 &339784561
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3846,7 +3827,7 @@ MonoBehaviour:
   volumeParameter: SFXVol
   mixer: {fileID: 24100000, guid: 952f06de00298204ab057326652c36ac, type: 2}
   slider: {fileID: 1375475957}
-  toggleSounds: {fileID: 319127208}
+  toggleVolumeSounds: {fileID: 319127208}
   volumeValueSave: 0
   valueSave: 0
 --- !u!1001 &1390471826
@@ -4120,7 +4101,6 @@ GameObject:
   - component: {fileID: 1470435899}
   - component: {fileID: 1470435901}
   - component: {fileID: 1470435902}
-  - component: {fileID: 1470435903}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -4271,24 +4251,6 @@ MonoBehaviour:
   nowSceneIndexInfo: 0
   lastSceneIndexInfo: 0
   referenceToSliderComponent: {fileID: 0}
---- !u!114 &1470435903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1470435898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f074af698c1f4a458abab99f0b7bfd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeParameter: SFXVol
-  mixer: {fileID: 24100000, guid: 952f06de00298204ab057326652c36ac, type: 2}
-  slider: {fileID: 1375475957}
-  toggleSounds: {fileID: 319127208}
-  volumeValueSave: 0
-  valueSave: 0
 --- !u!1 &1509498709
 GameObject:
   m_ObjectHideFlags: 0

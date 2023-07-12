@@ -12,7 +12,7 @@ public class SoundsManager : MonoBehaviour
     public string volumeParameter = "MasterVolume";
     public AudioMixer mixer;
     public Slider slider;
-    public Toggle toggleSounds;
+    public Toggle toggleVolumeSounds;
 
     [Header("Saved  Values")]
     [SerializeField] private float volumeValueSave;
@@ -31,24 +31,32 @@ public class SoundsManager : MonoBehaviour
         Load();
         slider.value = valueSave;
         slider.onValueChanged.AddListener(HandleSliderValueChanged);
-        
+
+    }
+
+    private void Update()
+    {
+        if (toggleVolumeSounds == null)
+            toggleVolumeSounds = GameObject.FindGameObjectWithTag("Sounds Toggle").GetComponent<Toggle>();
     }
 
     public void ToggleSounds()
     {
-        if (toggleSounds.isOn)
+        if (toggleVolumeSounds.isOn)
         {
             volumeValueSave = 0;
             valueSave = 1;
             slider.value = valueSave;
+            Save();
         }
         else
         {
             volumeValueSave = -80;
             valueSave = 0;
             slider.value = valueSave;
+            Save();
         }
-        Save();
+        
     }
 
     private void HandleSliderValueChanged(float value)
@@ -56,7 +64,13 @@ public class SoundsManager : MonoBehaviour
         valueSave = value;
         if (value != 0)
         {
-            toggleSounds.isOn = true;
+            //toggleSounds.isOn.Equals(true);
+            //toggleSounds.isOn = true; //there is a problem in main menu
+            if (toggleVolumeSounds.isOn == false)
+            {
+                toggleVolumeSounds.isOn = true;
+            }
+            
             var volumeValue = Mathf.Log10(value) * _multiplier;
             volumeValueSave = volumeValue;
             mixer.SetFloat(volumeParameter, volumeValue);
@@ -64,7 +78,12 @@ public class SoundsManager : MonoBehaviour
         }
         else
         {
-            toggleSounds.isOn = false;
+            //toggleSounds.isOn.Equals(false);
+            if (toggleVolumeSounds.isOn == true)
+            {
+                toggleVolumeSounds.isOn = false;
+            }
+            
             var volumeValue = -80;
             volumeValueSave = volumeValue;
             mixer.SetFloat(volumeParameter, volumeValue);

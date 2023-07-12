@@ -13,7 +13,8 @@ TagManager:
   - LevelManager
   - MusicObjectCreated
   - PauseSettingsWindow
-  - RestartText
+  - Sounds Slider
+  - Sounds Toggle
   layers:
   - Default
   - TransparentFX
