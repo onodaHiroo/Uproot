@@ -65,7 +65,8 @@ public class Enemy : MonoBehaviour
         GameObject flowingBlood = Instantiate(deadBodyBloodAnim, transform.position, transform.rotation);
         Debug.Log($"{gameObject} is dead");
 
-        FindObjectOfType<CountDownTheScore>().gameObject.GetComponent<CountDownTheScore>().score += 500;
+        if (FindObjectOfType<CountDownTheScore>() != null)
+            FindObjectOfType<CountDownTheScore>().gameObject.GetComponent<CountDownTheScore>().score += 500;
         
         if (weapon != null )
         {
