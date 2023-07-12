@@ -1,7 +1,9 @@
 using Newtonsoft.Json.Linq;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using Unity.VisualScripting;
 using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -47,21 +49,24 @@ public class SoundsManager : MonoBehaviour
 
     public void ToggleSounds()
     {
-        if (toggleVolumeSounds.isOn)
+        if (toggleVolumeSounds.isOn == true)
         {
             volumeValueSave = 0;
             valueSave = 1;
+            //Load();
             slider.value = valueSave;
-            Save();
+            //Save();
         }
-        else
+        else if (toggleVolumeSounds.isOn == false)
         {
+
             volumeValueSave = -80;
             valueSave = 0;
+            //Load();
             slider.value = valueSave;
-            Save();
+            //Save();
         }
-        
+        Save();
     }
 
     private void HandleSliderValueChanged(float value)
@@ -71,6 +76,7 @@ public class SoundsManager : MonoBehaviour
         {
             //toggleSounds.isOn.Equals(true);
             //toggleSounds.isOn = true; //there is a problem in main menu
+
             if (toggleVolumeSounds.isOn == false)
             {
                 toggleVolumeSounds.isOn = true;

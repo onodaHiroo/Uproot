@@ -1951,7 +1951,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3808,7 +3808,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.37205532
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3829,8 +3829,8 @@ MonoBehaviour:
   slider: {fileID: 1375475957}
   toggleVolumeSounds: {fileID: 319127208}
   SettingsWindow: {fileID: 1405830607}
-  volumeValueSave: 0
-  valueSave: 0
+  volumeValueSave: -8.58785
+  valueSave: 0.37205532
 --- !u!1001 &1390471826
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4102,6 +4102,7 @@ GameObject:
   - component: {fileID: 1470435899}
   - component: {fileID: 1470435901}
   - component: {fileID: 1470435902}
+  - component: {fileID: 1470435903}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -4252,6 +4253,25 @@ MonoBehaviour:
   nowSceneIndexInfo: 0
   lastSceneIndexInfo: 0
   referenceToSliderComponent: {fileID: 0}
+--- !u!114 &1470435903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470435898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f074af698c1f4a458abab99f0b7bfd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeParameter: SFXVol
+  mixer: {fileID: 24100000, guid: 952f06de00298204ab057326652c36ac, type: 2}
+  slider: {fileID: 1375475957}
+  toggleVolumeSounds: {fileID: 319127208}
+  SettingsWindow: {fileID: 1405830607}
+  volumeValueSave: 0
+  valueSave: 0
 --- !u!1 &1509498709
 GameObject:
   m_ObjectHideFlags: 0
@@ -5364,7 +5384,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
