@@ -64,20 +64,25 @@ public class CameraController : MonoBehaviour
 
     private void LookAhead()
     {
-        Vector3 camPos = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
-        camPos.z = -10;
-        Vector3 dir = camPos - this.transform.position;
+        //Vector3 camPos = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
+        //camPos.z = -10;
+        //Vector3 dir = camPos - this.transform.position;
 
-        checkDist = Vector3.Distance(cam.transform.position, player.transform.position);
+        //if (player.GetComponent<SpriteRenderer>().isVisible == true /* && checkDist <= 28*/) //при смерит здесь может быть по-другому
+        //{
+            //transform.Translate(dir * 2 * Time.deltaTime);
 
-        if (player.GetComponent<SpriteRenderer>().isVisible == true /* && checkDist <= 28*/) //при смерит здесь может быть по-другому
-        {
-            transform.Translate(dir * 2 * Time.deltaTime);
-        }
-        else
-        {
-            //КАК!??!?
-        }
+            //где-то нашел
+            var p = player.transform.position;
+            var mp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            p += Vector3.ClampMagnitude(mp - p, 100.0f) / 2.0f;
+            p.z = transform.position.z;
+            transform.position = Vector3.Lerp(transform.position, p, 10.0f * Time.deltaTime);
     }
+        //else
+        //{
+            //КАК!??!?
+        //}
+    
 
 }
