@@ -7,6 +7,8 @@ public class StunTimerScript : MonoBehaviour
 {
     public Enemy enemy;
     public float stunTime;
+    public GameObject enemyStunned;
+    public GameObject enemyUnStunAnim;
 
     // Start is called before the first frame update
     void Start()
@@ -14,12 +16,20 @@ public class StunTimerScript : MonoBehaviour
         Debug.Log($"Stun time: {stunTime} sec");
         //stunTime += Time.deltaTime * 2;
         enemy.ifStunTimerIsOver = false;
+        Invoke("PlayAnimOfEnemyUnStun", stunTime - 1.0f);
     }
 
     void Update()
     {
         stunTime -= Time.deltaTime;
         UnStunEnemy();
+    }
+
+    void PlayAnimOfEnemyUnStun()
+    {
+        Destroy(enemyStunned.gameObject);
+        GameObject enemyUnStunned = Instantiate(enemyUnStunAnim, transform.position, transform.rotation);
+        Destroy(enemyUnStunned, 2f);
     }
 
     private void UnStunEnemy()

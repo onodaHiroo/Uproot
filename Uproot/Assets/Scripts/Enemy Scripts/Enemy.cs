@@ -27,6 +27,9 @@ public class Enemy : MonoBehaviour
     private GameObject weaponUnder;
     public bool ifStunTimerIsOver = false;
 
+    public GameObject stunnedEnemyGameObject;
+    public GameObject unStunAnimGameObject;
+
     private void Awake()
     {
         weapon = GetComponent<EnemyAI>().weaponPrefab;
@@ -94,11 +97,14 @@ public class Enemy : MonoBehaviour
     public void GetPunched(float time)
     {
         gameObject.SetActive(false);
+        GameObject stunnedEnemy = Instantiate(stunnedEnemyGameObject, transform.position, transform.rotation);
         stunned = true;
 
-        StunTimerScript timer = Instantiate(stunTimer, transform.position, Quaternion.identity);
+        StunTimerScript timer = Instantiate(stunTimer, transform.position, transform.rotation);
         timer.stunTime = time;
         timer.enemy = this;
+        timer.enemyStunned = stunnedEnemy;
+        timer.enemyUnStunAnim = unStunAnimGameObject;
         
         if (weapon != null )
         {

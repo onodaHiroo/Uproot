@@ -80,7 +80,7 @@ public class EnemyAI : MonoBehaviour
         
         if (player != null)
         {
-            checkCollider = hit.collider.gameObject.name; //из-за убийства игрока вылетают ошибки, надо поправить
+            checkCollider = hit.collider.gameObject.name; 
         }
 
         if (moving)
