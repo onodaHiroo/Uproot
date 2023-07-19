@@ -26,7 +26,9 @@ public class ExitFromLevel : MonoBehaviour
 
         if (canExit)
         {
-            PlayerPrefs.SetInt("playerScoreLevel1", FindObjectOfType<CountDownTheScore>().score);
+            int thisLevelBuildIndex = SceneManager.GetActiveScene().buildIndex;
+            PlayerPrefs.GetInt($"playerScoreLevel{thisLevelBuildIndex - 1}", FindObjectOfType<CountDownTheScore>().score);
+
             spriteRenderer.enabled = true;
             boxCollider.enabled = true;
         }
@@ -38,7 +40,7 @@ public class ExitFromLevel : MonoBehaviour
         {
             if (collision.gameObject.tag == "Player")
             {
-                SceneManager.LoadScene(2); //there need to be score table
+                SceneManager.LoadScene(1); //there need to be score table
             }
         }
     }
