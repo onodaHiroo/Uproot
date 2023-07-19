@@ -1074,7 +1074,7 @@ GameObject:
   - component: {fileID: 319127208}
   m_Layer: 5
   m_Name: Sound Volume Toggle
-  m_TagString: Untagged
+  m_TagString: Sounds Toggle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3733,7 +3733,7 @@ GameObject:
   - component: {fileID: 1375475958}
   m_Layer: 5
   m_Name: Sound Volume Slider
-  m_TagString: Untagged
+  m_TagString: Sounds Slider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5499,11 +5499,11 @@ RectTransform:
   m_Father: {fileID: 1528120135}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 701, y: 409.75}
-  m_SizeDelta: {x: 294.71, y: 105.5}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -111.64502, y: -77.5}
+  m_SizeDelta: {x: 294.70996, y: 105.5}
+  m_Pivot: {x: 1, y: 1}
 --- !u!114 &1754770031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6640,10 +6640,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6341076311921522940, guid: 9b5b6fff2e42e274895095c8a138457b, type: 3}
-      propertyPath: isDead
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6341076311921522940, guid: 9b5b6fff2e42e274895095c8a138457b, type: 3}
       propertyPath: respawnText
       value: 

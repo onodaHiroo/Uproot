@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class ExitFromLevel : MonoBehaviour
 {
@@ -24,6 +26,7 @@ public class ExitFromLevel : MonoBehaviour
 
         if (canExit)
         {
+            PlayerPrefs.SetInt("playerScoreLevel1", FindObjectOfType<CountDownTheScore>().score);
             spriteRenderer.enabled = true;
             boxCollider.enabled = true;
         }
@@ -35,7 +38,7 @@ public class ExitFromLevel : MonoBehaviour
         {
             if (collision.gameObject.tag == "Player")
             {
-                SceneManager.LoadScene(0); //there need to be score table
+                SceneManager.LoadScene(2); //there need to be score table
             }
         }
     }

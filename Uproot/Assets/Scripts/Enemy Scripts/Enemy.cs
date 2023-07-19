@@ -73,7 +73,8 @@ public class Enemy : MonoBehaviour
         
         if (weapon != null )
         {
-            Destroy(GetComponentInChildren<EnemyShooting>().gameObject);
+            if (GetComponentInChildren<EnemyShooting>() != null)
+                Destroy(GetComponentInChildren<EnemyShooting>().gameObject);
 
             GameObject spawnedWeapon = Resources.Load<GameObject>($"Prefabs/Guns/Common/{weapon.name.Replace("holding_", "").Replace("(Clone)", "")}");
             GameObject lyingWeapon = Instantiate(spawnedWeapon, transform.position, Quaternion.identity);
