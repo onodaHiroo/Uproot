@@ -69,7 +69,7 @@ public class Enemy : MonoBehaviour
         Debug.Log($"{gameObject} is dead");
 
         if (FindObjectOfType<CountDownTheScore>() != null)
-            FindObjectOfType<CountDownTheScore>().gameObject.GetComponent<CountDownTheScore>().score += 500;
+            FindObjectOfType<CountDownTheScore>().gameObject.GetComponent<CountDownTheScore>().score += 500f;
         
         if (weapon != null )
         {

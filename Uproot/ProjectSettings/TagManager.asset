@@ -15,6 +15,9 @@ TagManager:
   - PauseSettingsWindow
   - Sounds Slider
   - Sounds Toggle
+  - RestartText
+  - Timer Ui
+  - LevelTimerObjectCreated
   layers:
   - Default
   - TransparentFX

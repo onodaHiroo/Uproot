@@ -16,9 +16,9 @@ public class PlayerDeath : MonoBehaviour
 
     public void Death()
     {
-        int maxScoreToSave = gameObject.GetComponent<CountDownTheScore>().maxScore;
-        int levelIndex = gameObject.GetComponent<CountDownTheScore>().levelIndex;
-        PlayerPrefs.SetInt($"maxScoreLevel{levelIndex - 1}", maxScoreToSave);
+        //float maxScoreToSave = gameObject.GetComponent<CountDownTheScore>().maxScore;
+        //int levelIndex = gameObject.GetComponent<CountDownTheScore>().levelIndex;
+        //PlayerPrefs.SetFloat($"maxScoreLevel{levelIndex - 1}", maxScoreToSave);
 
         //gameObject.SetActive(false);
         Destroy(gameObject);

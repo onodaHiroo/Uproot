@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ShowMaxScore : MonoBehaviour
 {
-    private int maxScore;
+    private float maxScore;
     private Text maxScoreTextComponent;
     public int levelNumber;
 
@@ -13,7 +13,7 @@ public class ShowMaxScore : MonoBehaviour
     {
         maxScoreTextComponent = GetComponent<Text>();
 
-        maxScore = PlayerPrefs.GetInt($"maxScoreLevel{levelNumber}", maxScore);
+        maxScore = PlayerPrefs.GetFloat($"maxScoreLevel{levelNumber}", maxScore);
         maxScoreTextComponent.text = $"Max Score: {maxScore}";
     }
 }

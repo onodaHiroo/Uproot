@@ -30,7 +30,8 @@ public class ExitFromLevel : MonoBehaviour
 
             if (FindObjectOfType<CountDownTheScore>() != null)
             {
-                PlayerPrefs.SetInt($"playerScoreLevel{thisLevelBuildIndex - 1}", FindObjectOfType<CountDownTheScore>().score);
+                PlayerPrefs.SetFloat($"playerScoreLevel{thisLevelBuildIndex - 1}", FindObjectOfType<CountDownTheScore>().score);
+                //PlayerPrefs.SetFloat($"maxScoreLevel{thisLevelBuildIndex - 1}", FindObjectOfType<CountDownTheScore>().maxScore);
             }
 
             spriteRenderer.enabled = true;
