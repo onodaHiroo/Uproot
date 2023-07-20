@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 9060867596903848562}
   - component: {fileID: 6341076311921522940}
   - component: {fileID: 7668106121256779185}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -556,7 +556,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  maxScore: 0
   scoreText: {fileID: 0}
+  levelIndex: 0
 --- !u!1 &9060867597392236046
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,7 +730,7 @@ GameObject:
   - component: {fileID: 9060867597736591215}
   m_Layer: 9
   m_Name: PunchArea
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
