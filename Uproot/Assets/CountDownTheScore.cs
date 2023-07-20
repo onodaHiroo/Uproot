@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
@@ -17,7 +18,9 @@ public class CountDownTheScore : MonoBehaviour
         levelIndex = SceneManager.GetActiveScene().buildIndex;
 
         GetMaxScore(levelIndex);
-        
+
+        PlayerPrefs.SetInt("currentLevelIndex", levelIndex);
+
     }
 
     public void Update()
@@ -39,7 +42,7 @@ public class CountDownTheScore : MonoBehaviour
     }
     public void GetMaxScore(int levelIndex)
     {
-        PlayerPrefs.GetInt($"maxScoreLevel{levelIndex - 1}", maxScore);
+        maxScore = PlayerPrefs.GetInt($"maxScoreLevel{levelIndex - 1}", maxScore);
     }
 
 }

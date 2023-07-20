@@ -27,7 +27,11 @@ public class ExitFromLevel : MonoBehaviour
         if (canExit)
         {
             int thisLevelBuildIndex = SceneManager.GetActiveScene().buildIndex;
-            PlayerPrefs.GetInt($"playerScoreLevel{thisLevelBuildIndex - 1}", FindObjectOfType<CountDownTheScore>().score);
+
+            if (FindObjectOfType<CountDownTheScore>() != null)
+            {
+                PlayerPrefs.SetInt($"playerScoreLevel{thisLevelBuildIndex - 1}", FindObjectOfType<CountDownTheScore>().score);
+            }
 
             spriteRenderer.enabled = true;
             boxCollider.enabled = true;

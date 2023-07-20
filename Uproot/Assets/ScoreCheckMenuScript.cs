@@ -12,10 +12,14 @@ public class ScoreCheckMenuScript : MonoBehaviour
     public int score;
     public int maxScore;
 
+    public int checkCurrentLevelIndex;
+
     public void Start()
     {
-        score = PlayerPrefs.GetInt("playerScoreLevel1", score);
-        maxScore = PlayerPrefs.GetInt("maxScoreLevel1", maxScore);
+        checkCurrentLevelIndex = PlayerPrefs.GetInt("currentLevelIndex", checkCurrentLevelIndex);
+
+        score = PlayerPrefs.GetInt($"playerScoreLevel{checkCurrentLevelIndex - 1}", score);
+        maxScore = PlayerPrefs.GetInt($"maxScoreLevel{checkCurrentLevelIndex - 1}", maxScore);
 
         scoreTextComponent.text = $"Score: {score}";
         maxScoreTextComponent.text = $"Max Score: {maxScore}";
@@ -23,11 +27,7 @@ public class ScoreCheckMenuScript : MonoBehaviour
 
     public void GoToMenu()
     {
+        PlayerPrefs.SetInt("currentLevelIndex", 0) ;
         SceneManager.LoadScene(0);
-    }
-
-    public void ShowScore()
-    {
-        
     }
 }

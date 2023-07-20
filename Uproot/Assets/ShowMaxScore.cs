@@ -7,12 +7,13 @@ public class ShowMaxScore : MonoBehaviour
 {
     private int maxScore;
     private Text maxScoreTextComponent;
+    public int levelNumber;
 
     private void Awake()
     {
         maxScoreTextComponent = GetComponent<Text>();
 
-        maxScore = PlayerPrefs.GetInt("maxScoreLevel1", maxScore);
+        maxScore = PlayerPrefs.GetInt($"maxScoreLevel{levelNumber}", maxScore);
         maxScoreTextComponent.text = $"Max Score: {maxScore}";
     }
 }
