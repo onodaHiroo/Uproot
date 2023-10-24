@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5426abd1c810d947a5cd25cfdeeb126, type: 3}
+  m_Name: ThirdMap
+  m_EditorClassIdentifier: 
+  mapIndex: 2
+  mapName: Third Map
+  mapDescription: 
+  mapImage: {fileID: 21300000, guid: a24ab1ff4fb31cd49a43347b8d19fd9e, type: 3}
+  sceneToLoad: {fileID: 102900000, guid: 7800958c7e3b60c4b8f497e1b601e982, type: 3}

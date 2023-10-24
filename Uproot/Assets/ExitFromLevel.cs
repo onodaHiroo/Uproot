@@ -45,6 +45,7 @@ public class ExitFromLevel : MonoBehaviour
         {
             if (collision.gameObject.tag == "Player")
             {
+                PlayerPrefs.SetInt("currentScene", SceneManager.GetActiveScene().buildIndex);
                 SceneManager.LoadScene(1); //there need to be score table
             }
         }

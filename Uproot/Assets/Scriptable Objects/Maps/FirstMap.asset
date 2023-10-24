@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5426abd1c810d947a5cd25cfdeeb126, type: 3}
+  m_Name: FirstMap
+  m_EditorClassIdentifier: 
+  mapIndex: 0
+  mapName: First Map
+  mapDescription: 
+  mapImage: {fileID: 21300000, guid: bde907195f5741b4985afacd7b0185a2, type: 3}
+  sceneToLoad: {fileID: 102900000, guid: 2cda990e2423bbf4892e6590ba056729, type: 3}
