@@ -36,7 +36,17 @@ public class MapDisplay : MonoBehaviour
         playButton.onClick.RemoveAllListeners();
         playButton.onClick.AddListener(() => SceneManager.LoadScene(map.sceneToLoad.name));
 
-        maxScore = PlayerPrefs.GetFloat($"maxScoreLevel{map.mapIndex}", maxScore);
-        map.mapDescription = $"Max Score: {maxScore}";
+        if (PlayerPrefs.HasKey($"maxScoreLevel{map.mapIndex}"))
+        {
+            maxScore = PlayerPrefs.GetFloat($"maxScoreLevel{map.mapIndex}", maxScore);
+            map.mapDescription = $"Max Score: {maxScore}";
+
+            Debug.Log($"MapIndex: {map.mapIndex}\nMaxScore:{maxScore}");
+        }
+        else
+        {
+            map.mapDescription = $"Max Score: {0}";
+        }
+            
     }
 }
