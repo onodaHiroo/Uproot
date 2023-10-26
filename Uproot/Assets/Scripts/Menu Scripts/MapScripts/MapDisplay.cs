@@ -39,13 +39,16 @@ public class MapDisplay : MonoBehaviour
         if (PlayerPrefs.HasKey($"maxScoreLevel{map.mapIndex}"))
         {
             maxScore = PlayerPrefs.GetFloat($"maxScoreLevel{map.mapIndex}", maxScore);
+
             map.mapDescription = $"Max Score: {maxScore}";
+            mapDescription.text = map.mapDescription;
 
             Debug.Log($"MapIndex: {map.mapIndex}\nMaxScore:{maxScore}");
         }
         else
         {
             map.mapDescription = $"Max Score: {0}";
+            mapDescription.text = map.mapDescription;
         }
             
     }

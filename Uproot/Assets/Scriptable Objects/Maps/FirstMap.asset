@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5426abd1c810d947a5cd25cfdeeb126, type: 3}
   m_Name: FirstMap
   m_EditorClassIdentifier: 
-  mapIndex: 0
+  mapIndex: 1
   mapName: First Map
-  mapDescription: 
+  mapDescription: 'Max Score: 0'
   mapImage: {fileID: 21300000, guid: bde907195f5741b4985afacd7b0185a2, type: 3}
   sceneToLoad: {fileID: 102900000, guid: 2cda990e2423bbf4892e6590ba056729, type: 3}
