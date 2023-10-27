@@ -46,6 +46,7 @@ public class CameraController : MonoBehaviour
         {
             LookAhead();
         }
+
     }
 
     public void SetFollowPlayer(bool val)

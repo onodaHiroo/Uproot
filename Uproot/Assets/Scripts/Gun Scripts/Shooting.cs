@@ -18,9 +18,12 @@ public class Shooting : MonoBehaviour
 
     public string wallCheckingTag;
 
+    private GameObject _cam;
+
     void Start()
     {
         _timerFire = _period;
+        _cam = GameObject.FindGameObjectWithTag("MainCamera");
     }
 
     // Update is called once per frame
@@ -33,6 +36,8 @@ public class Shooting : MonoBehaviour
             if (bulletAmmo > 0)
             {
                 this.Shoot();
+                //Camera shake while shooting
+                _cam.GetComponent<CameraShakeEffect>().StartShaking(1, new Vector2(0.3f, 0.3f));
             }  
         }
         _timerFire += Time.deltaTime;
@@ -53,6 +58,9 @@ public class Shooting : MonoBehaviour
             Rigidbody2D rigidBody = bullet.GetComponent<Rigidbody2D>();
             rigidBody.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
             SoundOfShot();
+
+            
+
             Destroy(bullet, 2f);
 
             bulletAmmo -= 1;

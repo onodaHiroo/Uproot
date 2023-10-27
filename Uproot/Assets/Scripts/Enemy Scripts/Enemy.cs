@@ -64,6 +64,12 @@ public class Enemy : MonoBehaviour
     private void EnemyDead()
     {
         Destroy(gameObject);
+
+        //Shaking camera
+        GameObject cam = GameObject.FindGameObjectWithTag("MainCamera");
+        cam.GetComponent<CameraShakeEffect>().StartShaking(5, new Vector2(0.5f, 0.5f));
+        //Shaking camera
+
         GameObject enemyDead = Instantiate(deadBody, transform.position, transform.rotation);
         GameObject flowingBlood = Instantiate(deadBodyBloodAnim, transform.position, transform.rotation);
         Debug.Log($"{gameObject} is dead");
