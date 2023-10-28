@@ -1,9 +1,11 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.VFX;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Enemy : MonoBehaviour
@@ -29,6 +31,8 @@ public class Enemy : MonoBehaviour
 
     public GameObject stunnedEnemyGameObject;
     public GameObject unStunAnimGameObject;
+
+    public GameObject floatingScore;
 
     private void Awake()
     {
@@ -63,6 +67,7 @@ public class Enemy : MonoBehaviour
 
     private void EnemyDead()
     {
+        SpawnScore();
         Destroy(gameObject);
 
         //Shaking camera
@@ -86,7 +91,6 @@ public class Enemy : MonoBehaviour
             GameObject lyingWeapon = Instantiate(spawnedWeapon, transform.position, Quaternion.identity);
             lyingWeapon.name = $"{lyingWeapon.name.Replace("(Clone)", "")}"; //to give them their full ammo
         }
-       
     }
 
     public void TakeDamage(float damage)
@@ -137,7 +141,13 @@ public class Enemy : MonoBehaviour
 
         GetComponent<EnemyAI>().moving = false;
         gameObject.GetComponent<EnemyAI>().enemyType = EnemyAI.EnemyType.patrol;
+        
     }
-
-   
+    public void SpawnScore()
+    {
+        int cord = UnityEngine.Random.Range(-5, 5);
+        Debug.Log(cord);
+        Vector2 floatingScorePos = new Vector2(transform.position.x + cord, transform.position.y + cord);
+        Instantiate(floatingScore, floatingScorePos, Quaternion.identity);
+    }
 }

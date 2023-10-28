@@ -145,6 +145,7 @@ MonoBehaviour:
   ifStunTimerIsOver: 0
   stunnedEnemyGameObject: {fileID: 8911110807479743528, guid: af9ad077a8f52b5449ea222a386a84c4, type: 3}
   unStunAnimGameObject: {fileID: 1675702765051094980, guid: f01ceddf12199dc409f5fbf081b5537a, type: 3}
+  floatingScore: {fileID: 8033207806012778216, guid: 5ac6bc044ef436a449e801344c575f1f, type: 3}
 --- !u!50 &-3379583217113989954
 Rigidbody2D:
   serializedVersion: 4
