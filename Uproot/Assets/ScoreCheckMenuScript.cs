@@ -11,6 +11,7 @@ public class ScoreCheckMenuScript : MonoBehaviour
     public Text maxScoreTextComponent;
     public Text levelScoreMultiplierTextComponent;
     public Text finalScoreTextComponent;
+    public Text newMaxScoreTextComponent;
 
     [Header("Check values")]
     public float score;
@@ -33,6 +34,8 @@ public class ScoreCheckMenuScript : MonoBehaviour
         if (finalScore > maxScore)
         {
             maxScore = finalScore;
+            //need to notificate new max score
+            newMaxScoreTextComponent.gameObject.SetActive(true);
         }
         PlayerPrefs.SetFloat($"playerScoreLevel{checkCurrentLevelIndex - 1}", finalScore);
         PlayerPrefs.SetFloat($"maxScoreLevel{checkCurrentLevelIndex - 1}", maxScore);
