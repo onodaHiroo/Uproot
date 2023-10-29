@@ -13,6 +13,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private bool allEnemiesAreDeadCheck;
     [SerializeField] private GameObject exit;
     public TextMeshProUGUI levelCompletedTMPUGUI;
+    public GameObject exitArrow;
 
     private void Awake()
     {
@@ -26,7 +27,7 @@ public class LevelManager : MonoBehaviour
         {
             allEnemiesAreDeadCheck = true;
             levelCompletedTMPUGUI.gameObject.SetActive(true);
-
+            exitArrow.gameObject.SetActive(true);
         }
     }
 
