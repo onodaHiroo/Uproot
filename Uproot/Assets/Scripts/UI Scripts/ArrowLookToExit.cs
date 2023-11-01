@@ -7,10 +7,13 @@ using UnityEngine.UI;
 public class ArrowLookToExit : MonoBehaviour
 {
     public GameObject exit;
-    [SerializeField] private Vector2 exitTransformPosition;
-    [SerializeField] private float rotation;
+    private float rotation;
+    private float startLocalScaleY;
 
-
+    private void Start()
+    {
+        startLocalScaleY = gameObject.transform.localScale.y;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -27,6 +30,29 @@ public class ArrowLookToExit : MonoBehaviour
     }
     public void RotateToExit()
     {
+        rotation = Mathf.Atan2((exit.transform.position.y - transform.position.y), (exit.transform.position.x - transform.position.x)) * Mathf.Rad2Deg - 180;
         gameObject.transform.eulerAngles = new Vector3(0, 0, Mathf.Atan2((exit.transform.position.y - transform.position.y), (exit.transform.position.x - transform.position.x)) * Mathf.Rad2Deg - 180);
+
+        if ((rotation > -270) && (rotation <= -90))
+        {
+            if (gameObject.transform.localScale.y > 0)
+            {
+                gameObject.transform.localScale = new Vector3(
+                    gameObject.transform.localScale.x, 
+                    startLocalScaleY * -1, 
+                    gameObject.transform.localScale.z);
+            }
+        }
+        if(!((rotation > -270) && (rotation <= -90)))
+        {
+            if (gameObject.transform.localScale.y < 0)
+            {
+                gameObject.transform.localScale = new Vector3
+                    (gameObject.transform.localScale.x, 
+                    startLocalScaleY, 
+                    gameObject.transform.localScale.z);
+
+            }
+        }
     }
 }
