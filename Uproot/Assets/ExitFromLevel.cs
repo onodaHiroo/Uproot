@@ -35,7 +35,7 @@ public class ExitFromLevel : MonoBehaviour
             }
 
             spriteRenderer.enabled = true;
-            boxCollider.enabled = true;
+            boxCollider.enabled = true;                
         }
     }
 

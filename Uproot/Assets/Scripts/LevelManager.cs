@@ -14,11 +14,13 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject exit;
     public TextMeshProUGUI levelCompletedTMPUGUI;
     public GameObject exitArrow;
+    private MusicManager musicManager;
 
     private void Awake()
     {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         exit = GameObject.Find("ExitFromLvl");
+        musicManager = FindObjectOfType<MusicManager>();
     }
 
     private void Update()
@@ -28,12 +30,15 @@ public class LevelManager : MonoBehaviour
             allEnemiesAreDeadCheck = true;
             levelCompletedTMPUGUI.gameObject.SetActive(true);
             exitArrow.gameObject.SetActive(true);
+
+            musicManager.SetExitMusic(true);
         }
     }
 
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        musicManager.SetOriginalTrackIfRestart();
     }
 
     public bool AllEnemiesAreDead()

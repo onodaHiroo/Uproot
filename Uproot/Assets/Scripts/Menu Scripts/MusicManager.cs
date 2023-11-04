@@ -12,7 +12,10 @@ public class MusicManager : MonoBehaviour
     public AudioSource audio;
     public float volume;
     public GameObject SettingsWindow;
-
+    public AudioClip audioClipAsMusic;
+    public AudioClip ExitAudioClip;
+    public bool checkIfLevelEnded;
+    public bool checkIsMusicPlaying = false;
 
 
     // Start is called before the first frame update
@@ -20,17 +23,19 @@ public class MusicManager : MonoBehaviour
     {
         Load();
         ValueMusic();
+        checkIfLevelEnded = false;
     }
 
     private void Update()
     {
+        checkIsMusicPlaying = audio.isPlaying;
         SettingsWindow = GameObject.FindGameObjectWithTag("PauseSettingsWindow");
 
         if (SettingsWindow != null)
         {
             toggleMusic = GameObject.FindGameObjectWithTag("Music Toggle").GetComponent<Toggle>();
             sliderVolumeMusic = GameObject.FindGameObjectWithTag("Music Slider").GetComponent<Slider>();
-        }
+        }       
     }
 
     public void SliderMusic()
@@ -65,6 +70,27 @@ public class MusicManager : MonoBehaviour
         
     }
 
+    public void SetExitMusic(bool check)
+    {
+        if (!checkIfLevelEnded && check)
+        {
+            audio.clip = ExitAudioClip;
+            audio.Play();
+            Debug.Log("music changed");
+            checkIfLevelEnded = true;
+        }
+        
+    }
+
+    public void SetOriginalTrackIfRestart()
+    {
+        if (audio.clip != audioClipAsMusic)
+        {
+            audio.clip = audioClipAsMusic;
+            audio.Play();
+            checkIfLevelEnded = false;
+        }
+    }
     private void Save()
     {
         PlayerPrefs.SetFloat("volume", volume);
