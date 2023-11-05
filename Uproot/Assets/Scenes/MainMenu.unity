@@ -2143,7 +2143,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &1376604068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3745,6 +3745,10 @@ MonoBehaviour:
   audio: {fileID: 1882010492}
   volume: 100
   SettingsWindow: {fileID: 1303012808}
+  audioClipAsMusic: {fileID: 0}
+  ExitAudioClip: {fileID: 0}
+  checkIfLevelEnded: 0
+  checkIsMusicPlaying: 0
 --- !u!114 &1882010495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4175,7 +4179,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &1992304387
 MonoBehaviour:
   m_ObjectHideFlags: 0

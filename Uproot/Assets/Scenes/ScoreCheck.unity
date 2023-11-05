@@ -185,12 +185,12 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: f8871cdc6f0bdf344933a095f349f4b7, type: 3}
     m_FontSize: 300
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
     m_MaxSize: 300
     m_Alignment: 3
     m_AlignByGeometry: 1
-    m_RichText: 0
+    m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
@@ -265,12 +265,12 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: f8871cdc6f0bdf344933a095f349f4b7, type: 3}
     m_FontSize: 300
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
     m_MaxSize: 300
     m_Alignment: 3
     m_AlignByGeometry: 1
-    m_RichText: 0
+    m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
@@ -318,6 +318,7 @@ MonoBehaviour:
   audio: {fileID: 373786146}
   volume: 100
   SettingsWindow: {fileID: 0}
+  audioClipAsMusic: {fileID: 0}
   ExitAudioClip: {fileID: 0}
   checkIfLevelEnded: 0
   checkIsMusicPlaying: 0
@@ -755,7 +756,7 @@ MonoBehaviour:
     m_MaxSize: 300
     m_Alignment: 3
     m_AlignByGeometry: 1
-    m_RichText: 0
+    m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
@@ -1264,7 +1265,7 @@ MonoBehaviour:
     m_MaxSize: 300
     m_Alignment: 3
     m_AlignByGeometry: 1
-    m_RichText: 0
+    m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
