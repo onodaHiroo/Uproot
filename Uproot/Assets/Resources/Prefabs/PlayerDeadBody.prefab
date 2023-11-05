@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 7676202704940394937}
   - component: {fileID: -1790526732526128035}
   - component: {fileID: 1076455210949610964}
+  - component: {fileID: 1988950787902371648}
   m_Layer: 0
   m_Name: PlayerDeadBody
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e5fcaf0b6824fe41a5c1a2e3065e826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDead: 0
 --- !u!212 &1076455210949610964
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -85,7 +87,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 8
   m_Sprite: {fileID: 827975250, guid: 5753913b4a475264fa4d1b8bedeea67d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -97,3 +99,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1988950787902371648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935752074975237515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbce983f38326c6408209a5da9211007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

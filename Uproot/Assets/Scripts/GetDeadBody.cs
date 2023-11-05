@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyGetDeadBody : MonoBehaviour
+public class GetDeadBody : MonoBehaviour
 {
     private void Awake()
     {
         gameObject.GetComponent<SpriteRenderer>()
-            .sprite = FindObjectOfType<SpawnDeadBody>().GetDeadBodySprite(gameObject);
+            .sprite = FindObjectOfType<DeadBodyManager>().GetDeadBodySprite(gameObject);
     }
 }

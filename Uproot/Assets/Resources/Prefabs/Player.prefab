@@ -542,6 +542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDeathBody: {fileID: 1935752074975237515, guid: 82f9e465b5e0bf244a6faa6565bec1be, type: 3}
+  deadBodyBloodAnim: {fileID: 2409019505703208906, guid: 3faf05f467c8b524ea6e40040d775148, type: 3}
   isDead: 0
 --- !u!114 &7668106121256779185
 MonoBehaviour:

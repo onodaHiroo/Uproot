@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerDeath : MonoBehaviour
 {
     public GameObject playerDeathBody;
+    public GameObject deadBodyBloodAnim;
     public bool isDead = false;
     private GameObject restartText;
 
@@ -24,6 +25,7 @@ public class PlayerDeath : MonoBehaviour
         Destroy(gameObject);
         isDead = true;
         Instantiate(playerDeathBody, transform.position, transform.rotation);
+        Instantiate(deadBodyBloodAnim, transform.position, transform.rotation);
         restartText.GetComponent<Text>().enabled = true;
     }
 

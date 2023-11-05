@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class SpawnDeadBody : MonoBehaviour
+public class DeadBodyManager : MonoBehaviour
 {
     //singleton
 
-    public static SpawnDeadBody instance { get; private set; } = null;
+    public static DeadBodyManager instance { get; private set; } = null;
     public Sprite[] enemyDeadBodies;
     public Sprite[] playerDeadBodies;
 

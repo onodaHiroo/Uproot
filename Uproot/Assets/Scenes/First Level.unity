@@ -3841,10 +3841,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 36631b2c74d427d47bcb8d3f987f27b9, type: 2}
   - {fileID: 21300000, guid: e7ed294414f454a4196a04517683702c, type: 2}
   playerDeadBodies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: e13d1a7769404b240b5bcf30bc056912, type: 2}
+  - {fileID: 21300000, guid: 6edd8abd83543bb40bd04c89c4e6d875, type: 2}
+  - {fileID: 21300000, guid: 36631b2c74d427d47bcb8d3f987f27b9, type: 2}
+  - {fileID: 21300000, guid: e7ed294414f454a4196a04517683702c, type: 2}
 --- !u!4 &423983869 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9141303253824268151, guid: 480fea5c7e7f1814eb34e61c2f88f6c0, type: 3}
