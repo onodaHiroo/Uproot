@@ -246,7 +246,7 @@ TextureImporter:
       name: enemy-dead_6
       rect:
         serializedVersion: 2
-        x: 440
+        x: 445
         y: 846
         width: 612
         height: 531
