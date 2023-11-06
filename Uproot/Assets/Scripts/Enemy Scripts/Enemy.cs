@@ -150,4 +150,16 @@ public class Enemy : MonoBehaviour
         Vector2 floatingScorePos = new Vector2(transform.position.x + cord, transform.position.y + cord);
         Instantiate(floatingScore, floatingScorePos, Quaternion.identity);
     }
+
+    private void OnMouseOver()
+    {
+        CursorScript gm = GameObject.FindObjectOfType<CursorScript>();
+        gm.ToEnemyEnter();
+    }
+
+    private void OnMouseExit()
+    {
+        CursorScript gm = GameObject.FindObjectOfType<CursorScript>();
+        gm.ToEnemyExit();
+    }
 }

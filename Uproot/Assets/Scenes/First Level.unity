@@ -3836,15 +3836,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyDeadBodies:
-  - {fileID: 21300000, guid: e13d1a7769404b240b5bcf30bc056912, type: 2}
-  - {fileID: 21300000, guid: 6edd8abd83543bb40bd04c89c4e6d875, type: 2}
-  - {fileID: 21300000, guid: 36631b2c74d427d47bcb8d3f987f27b9, type: 2}
-  - {fileID: 21300000, guid: e7ed294414f454a4196a04517683702c, type: 2}
+  - {fileID: -1587151021, guid: 5753913b4a475264fa4d1b8bedeea67d, type: 3}
+  - {fileID: -652906863, guid: 5753913b4a475264fa4d1b8bedeea67d, type: 3}
+  - {fileID: 401119540, guid: 5753913b4a475264fa4d1b8bedeea67d, type: 3}
+  - {fileID: -551749797, guid: 5753913b4a475264fa4d1b8bedeea67d, type: 3}
+  - {fileID: -1604519097, guid: 5753913b4a475264fa4d1b8bedeea67d, type: 3}
   playerDeadBodies:
-  - {fileID: 21300000, guid: e13d1a7769404b240b5bcf30bc056912, type: 2}
-  - {fileID: 21300000, guid: 6edd8abd83543bb40bd04c89c4e6d875, type: 2}
-  - {fileID: 21300000, guid: 36631b2c74d427d47bcb8d3f987f27b9, type: 2}
-  - {fileID: 21300000, guid: e7ed294414f454a4196a04517683702c, type: 2}
+  - {fileID: -1784169362, guid: 4176785f58800e244bb3d9386c09b5a1, type: 3}
+  - {fileID: -1424066705, guid: 4176785f58800e244bb3d9386c09b5a1, type: 3}
+  - {fileID: 580035577, guid: 4176785f58800e244bb3d9386c09b5a1, type: 3}
+  - {fileID: 1738867086, guid: 4176785f58800e244bb3d9386c09b5a1, type: 3}
+  - {fileID: -1099076863, guid: 4176785f58800e244bb3d9386c09b5a1, type: 3}
 --- !u!4 &423983869 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9141303253824268151, guid: 480fea5c7e7f1814eb34e61c2f88f6c0, type: 3}
@@ -13379,6 +13381,7 @@ GameObject:
   - component: {fileID: 1528120136}
   - component: {fileID: 1528120139}
   - component: {fileID: 1528120140}
+  - component: {fileID: 1528120141}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -13504,6 +13507,24 @@ MonoBehaviour:
   pauseButton: {fileID: 1121600971}
   pauseButtonsMenu: {fileID: 79983878}
   pauseSettingsMenu: {fileID: 1405830607}
+--- !u!114 &1528120141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528120134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97f65fb8d93a01b4a8a0f09dabb0bb27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorTextureEnemy: {fileID: 2800000, guid: 2a62113c8e3ef4f4e94e1e5013034c3a, type: 3}
+  cursorTextureCel: {fileID: 2800000, guid: 9094c1d3bebb7a4409dede8c027e1b49, type: 3}
+  cursorMode: 0
+  hotSpot: {x: 17.5, y: 14}
+  game: 1
+  menu: 0
 --- !u!4 &1530946477 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6573995246788350039, guid: 5e87240e3d34bb44e98ac9c2629aaec7, type: 3}

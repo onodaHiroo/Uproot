@@ -924,6 +924,7 @@ GameObject:
   - component: {fileID: 642196986}
   - component: {fileID: 642196985}
   - component: {fileID: 642196984}
+  - component: {fileID: 642196987}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -1017,6 +1018,24 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &642196987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642196982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97f65fb8d93a01b4a8a0f09dabb0bb27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorTextureEnemy: {fileID: 0}
+  cursorTextureCel: {fileID: 0}
+  cursorMode: 0
+  hotSpot: {x: 17.5, y: 14}
+  game: 0
+  menu: 1
 --- !u!1 &691824566
 GameObject:
   m_ObjectHideFlags: 0

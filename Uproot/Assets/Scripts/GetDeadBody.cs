@@ -9,4 +9,10 @@ public class GetDeadBody : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>()
             .sprite = FindObjectOfType<DeadBodyManager>().GetDeadBodySprite(gameObject);
     }
+
+    private void OnMouseExit()
+    {
+        CursorScript gm = GameObject.FindObjectOfType<CursorScript>();
+        gm.ToEnemyExit();
+    }
 }
