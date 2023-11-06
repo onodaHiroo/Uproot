@@ -17,7 +17,7 @@ public class CursorScript : MonoBehaviour
     {
         if (game && cursorTextureCel != null && cursorTextureEnemy != null)
         {
-            Cursor.SetCursor(cursorTextureCel, hotSpot, cursorMode); 
+            Cursor.SetCursor(cursorTextureCel, hotSpot, cursorMode);
         }
         if (menu)
         {
@@ -31,6 +31,16 @@ public class CursorScript : MonoBehaviour
     }
 
     public void ToEnemyExit()
+    {
+        Cursor.SetCursor(cursorTextureCel, hotSpot, cursorMode);
+    }
+
+    public void SetNullCursor()
+    {
+        Cursor.SetCursor(null, hotSpot, cursorMode);
+    }
+
+    public void SetCelCursor()
     {
         Cursor.SetCursor(cursorTextureCel, hotSpot, cursorMode);
     }

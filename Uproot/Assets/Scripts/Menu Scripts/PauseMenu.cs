@@ -19,10 +19,12 @@ public class PauseMenu : MonoBehaviour
             if (pauseGame)
             {
                 Resume();
+                FindObjectOfType<CursorScript>().SetCelCursor();
             }
             else
             {
                 Pause();
+                FindObjectOfType<CursorScript>().SetNullCursor();
             }
         }
     }
@@ -35,6 +37,8 @@ public class PauseMenu : MonoBehaviour
         pauseSettingsMenu.SetActive(false);
         Time.timeScale = 1f;
         pauseGame = false;
+
+        
     }
 
     public void Pause()
@@ -43,6 +47,8 @@ public class PauseMenu : MonoBehaviour
         pauseButton.SetActive(false);
         Time.timeScale = 0f;
         pauseGame = true;
+
+        
     }
 
     public void LoadMenu()

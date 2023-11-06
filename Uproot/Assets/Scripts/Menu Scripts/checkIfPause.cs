@@ -30,8 +30,6 @@ public class checkIfPause : MonoBehaviour
             punching.enabled = false;
             anim.enabled = false;
             cameraRotation.enabled = false;
-
-            //FindObjectOfType<CursorScript>().ToMenu();
         }
         else
         {
@@ -40,8 +38,6 @@ public class checkIfPause : MonoBehaviour
             punching.enabled = true;
             anim.enabled = true;
             cameraRotation.enabled = true;
-
-            //FindObjectOfType<CursorScript>().ToGame();
         }
     }
 }
