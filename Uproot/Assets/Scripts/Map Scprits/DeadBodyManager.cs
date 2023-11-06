@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ public class DeadBodyManager : MonoBehaviour
     public static DeadBodyManager instance { get; private set; } = null;
     public Sprite[] enemyDeadBodies;
     public Sprite[] playerDeadBodies;
+    public GameObject[] bloodSplashAnims = new GameObject[4];
 
     void Awake()
     {
@@ -78,6 +80,13 @@ public class DeadBodyManager : MonoBehaviour
         }
     }
 
-    
+    public GameObject GetBloodSplashGameObject()
+    {
+        GameObject[] array = bloodSplashAnims;
+        var rand = UnityEngine.Random.Range(0, array.Length);
+        GameObject bloodSplash = array[rand];
+
+        return bloodSplash;
+    }
 
 }

@@ -3847,6 +3847,11 @@ MonoBehaviour:
   - {fileID: 580035577, guid: 4176785f58800e244bb3d9386c09b5a1, type: 3}
   - {fileID: 1738867086, guid: 4176785f58800e244bb3d9386c09b5a1, type: 3}
   - {fileID: -1099076863, guid: 4176785f58800e244bb3d9386c09b5a1, type: 3}
+  bloodSplashAnims:
+  - {fileID: 6309857418387396502, guid: c6584842618da8d44b34b3dd06640651, type: 3}
+  - {fileID: 7980740108840590199, guid: 605bfb735015fc0488fbf3dcb9613eb6, type: 3}
+  - {fileID: 8505025605984016274, guid: 3b30bf14bb73ea8449c3488f830708e7, type: 3}
+  - {fileID: 872745239980555153, guid: d187e643afb9e8e46832bbe9d9a94c7d, type: 3}
 --- !u!4 &423983869 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9141303253824268151, guid: 480fea5c7e7f1814eb34e61c2f88f6c0, type: 3}
@@ -6771,7 +6776,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &778307251
 Transform:
   m_ObjectHideFlags: 0
@@ -14858,7 +14863,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1734965139
 Transform:
   m_ObjectHideFlags: 0

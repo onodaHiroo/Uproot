@@ -49,6 +49,7 @@ public class Bullet : MonoBehaviour
         if (collider.transform.tag == "Enemy")
         {
             Enemy enemy = collider.transform.GetComponent<Enemy>();
+            enemy.rotationToSpawnBloodSplash = gameObject.transform.rotation;
 
             GameObject effect = Instantiate(hitEnemyEffect, transform.position, Quaternion.identity);
             Destroy(effect, 0.1f);
@@ -61,6 +62,7 @@ public class Bullet : MonoBehaviour
             }
             Destroy(gameObject);
 
+            
         }
     }
 }

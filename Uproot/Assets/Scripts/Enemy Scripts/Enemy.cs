@@ -1,12 +1,14 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.VFX;
 using static UnityEngine.RuleTile.TilingRuleOutput;
+using Debug = UnityEngine.Debug;
 
 public class Enemy : MonoBehaviour
 {
@@ -33,6 +35,8 @@ public class Enemy : MonoBehaviour
     public GameObject unStunAnimGameObject;
 
     public GameObject floatingScore;
+
+    [HideInInspector] public Quaternion rotationToSpawnBloodSplash;
 
     private void Awake()
     {
@@ -68,6 +72,7 @@ public class Enemy : MonoBehaviour
     private void EnemyDead()
     {
         SpawnScore();
+        InstantiateBloodSplash(rotationToSpawnBloodSplash);
         Destroy(gameObject);
 
 
@@ -76,8 +81,10 @@ public class Enemy : MonoBehaviour
         cam.GetComponent<CameraShakeEffect>().StartShaking(5, new Vector2(0.5f, 0.5f));
         //Shaking camera
 
-        GameObject enemyDead = Instantiate(deadBody, transform.position, transform.rotation);
-        GameObject flowingBlood = Instantiate(deadBodyBloodAnim, transform.position, transform.rotation);
+        Quaternion rotationToSpawnDeadBody = new Quaternion(0,0,180,0) * rotationToSpawnBloodSplash; 
+
+        GameObject enemyDead = Instantiate(deadBody, transform.position, rotationToSpawnDeadBody);
+        GameObject flowingBlood = Instantiate(deadBodyBloodAnim, transform.position, rotationToSpawnDeadBody);
         Debug.Log($"{gameObject} is dead");
 
         if (FindObjectOfType<CountDownTheScore>() != null)
@@ -165,5 +172,10 @@ public class Enemy : MonoBehaviour
     {
         CursorScript gm = GameObject.FindObjectOfType<CursorScript>();
         gm.ToEnemyExit();
+    }
+
+    private void InstantiateBloodSplash(Quaternion rotationToSpawnBloodSplash)
+    {
+        Instantiate(FindObjectOfType<DeadBodyManager>().GetBloodSplashGameObject(), transform.position, rotationToSpawnBloodSplash);
     }
 }
