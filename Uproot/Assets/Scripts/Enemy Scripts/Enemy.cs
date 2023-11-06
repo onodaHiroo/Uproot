@@ -70,6 +70,7 @@ public class Enemy : MonoBehaviour
         SpawnScore();
         Destroy(gameObject);
 
+
         //Shaking camera
         GameObject cam = GameObject.FindGameObjectWithTag("MainCamera");
         cam.GetComponent<CameraShakeEffect>().StartShaking(5, new Vector2(0.5f, 0.5f));
@@ -91,6 +92,8 @@ public class Enemy : MonoBehaviour
             GameObject lyingWeapon = Instantiate(spawnedWeapon, transform.position, Quaternion.identity);
             lyingWeapon.name = $"{lyingWeapon.name.Replace("(Clone)", "")}"; //to give them their full ammo
         }
+
+        FindObjectOfType<CursorScript>().ToEnemyExit();
     }
 
     public void TakeDamage(float damage)
@@ -141,7 +144,8 @@ public class Enemy : MonoBehaviour
 
         GetComponent<EnemyAI>().moving = false;
         gameObject.GetComponent<EnemyAI>().enemyType = EnemyAI.EnemyType.patrol;
-        
+
+        FindObjectOfType<CursorScript>().ToEnemyExit();
     }
     public void SpawnScore()
     {
