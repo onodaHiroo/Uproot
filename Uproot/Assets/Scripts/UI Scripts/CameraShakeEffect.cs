@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 public class CameraShakeEffect : MonoBehaviour
 {
     public static CameraShakeEffect instance;
+    //public static float _durationTimer = 0;
 
     private static bool _isShaking;
     public static bool IsShaking => _isShaking;
@@ -20,7 +21,12 @@ public class CameraShakeEffect : MonoBehaviour
         {
             Destroy(this);
         }
+
     }
+    //private void FixedUpdate()
+    //{
+    //    _durationTimer += 0.07f;
+    //}
 
     private static IEnumerator Shake(float duration, Vector2 positionOffsetLimits)
     {
@@ -55,13 +61,4 @@ public class CameraShakeEffect : MonoBehaviour
 
     public void StartShaking(float duration, Vector2 posOffsetLimits) =>
         instance.StartCoroutine(Shake(duration, posOffsetLimits));
-
-    public void Update()
-    {
-        //if (Input.GetKey(KeyCode.B))
-        //{
-        //    StartShaking(1, new Vector2(0.2f, 0.2f));
-        //    Debug.Log("Shaking");
-        //}
-    }
 }

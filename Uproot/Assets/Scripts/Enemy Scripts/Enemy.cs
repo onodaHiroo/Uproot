@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Unity.Mathematics;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.VFX;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 using Debug = UnityEngine.Debug;
+using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
@@ -69,6 +71,14 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        //if (EnemyDead() == true)
+        //{
+        //    ShakeCamera();
+        //}
+    }
+
     private void EnemyDead()
     {
         SpawnScore();
@@ -77,12 +87,10 @@ public class Enemy : MonoBehaviour
 
 
         //Shaking camera
-        GameObject cam = GameObject.FindGameObjectWithTag("MainCamera");
-        cam.GetComponent<CameraShakeEffect>().StartShaking(5, new Vector2(0.5f, 0.5f));
+        ShakeCamera();
         //Shaking camera
 
         Quaternion rotationToSpawnDeadBody = new Quaternion(0,0,180,0) * rotationToSpawnBloodSplash; 
-
         GameObject enemyDead = Instantiate(deadBody, transform.position, rotationToSpawnDeadBody);
         GameObject flowingBlood = Instantiate(deadBodyBloodAnim, transform.position, rotationToSpawnDeadBody);
         Debug.Log($"{gameObject} is dead");
@@ -157,7 +165,6 @@ public class Enemy : MonoBehaviour
     public void SpawnScore()
     {
         int cord = UnityEngine.Random.Range(-5, 5);
-        Debug.Log(cord);
         Vector2 floatingScorePos = new Vector2(transform.position.x + cord, transform.position.y + cord);
         Instantiate(floatingScore, floatingScorePos, Quaternion.identity);
     }
@@ -175,7 +182,20 @@ public class Enemy : MonoBehaviour
     }
 
     private void InstantiateBloodSplash(Quaternion rotationToSpawnBloodSplash)
+    {   
+        int rand = Random.Range(-1, 1);
+        //туповато но пока сойдет
+        if (rand == 0) rand = 1;
+
+        GameObject splash = FindObjectOfType<DeadBodyManager>().GetBloodSplashGameObject();
+        splash.transform.localScale = new Vector3(splash.transform.localScale.x * rand, splash.transform.localScale.y, splash.transform.localScale.z);
+        Instantiate(splash, transform.position, rotationToSpawnBloodSplash);
+        
+    }
+
+    private void ShakeCamera()
     {
-        Instantiate(FindObjectOfType<DeadBodyManager>().GetBloodSplashGameObject(), transform.position, rotationToSpawnBloodSplash);
+        GameObject cam = GameObject.FindGameObjectWithTag("MainCamera");
+        cam.GetComponent<CameraShakeEffect>().StartShaking(2, new Vector2(0.5f, 0.5f));
     }
 }
