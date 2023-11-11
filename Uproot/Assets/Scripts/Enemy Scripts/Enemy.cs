@@ -71,14 +71,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        //if (EnemyDead() == true)
-        //{
-        //    ShakeCamera();
-        //}
-    }
-
     private void EnemyDead()
     {
         SpawnScore();
@@ -196,6 +188,6 @@ public class Enemy : MonoBehaviour
     private void ShakeCamera()
     {
         GameObject cam = GameObject.FindGameObjectWithTag("MainCamera");
-        cam.GetComponent<CameraShakeEffect>().StartShaking(2, new Vector2(0.5f, 0.5f));
+        cam.GetComponent<CameraShakeEffect>().StartShaking(0.2f, new Vector2(0.5f, 0.5f));
     }
 }

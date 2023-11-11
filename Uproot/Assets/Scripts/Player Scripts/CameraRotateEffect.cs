@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class CameraRotateEffect : MonoBehaviour
@@ -10,7 +11,8 @@ public class CameraRotateEffect : MonoBehaviour
 
     private void Start()
     { 
-        pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>(); 
+        pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        Debug.Log($"Качание камерой запущено в :({Thread.CurrentThread}) потоке");
     }
 
     private void Update()
@@ -24,11 +26,13 @@ public class CameraRotateEffect : MonoBehaviour
 
             if (transform.eulerAngles.z >= 2.0f && transform.eulerAngles.z < 7.0f) //чтобы поменьше качалось менять тут
             {
-                mod = -0.002f; //и тут
+                //mod = -0.002f; //и тут
+                mod = -Time.deltaTime;
             }
             else if (transform.eulerAngles.z < 358.0f && transform.eulerAngles.z > 353.0f) //и тут
             {
-                mod = 0.002f; //и тут
+                //mod = 0.002f; //и тут
+                mod = Time.deltaTime;
             }
             
         }

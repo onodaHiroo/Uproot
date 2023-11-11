@@ -37,7 +37,7 @@ public class Shooting : MonoBehaviour
             {
                 this.Shoot();
                 //Camera shake while shooting
-                _cam.GetComponent<CameraShakeEffect>().StartShaking(1, new Vector2(0.3f, 0.3f));
+                _cam.GetComponent<CameraShakeEffect>().StartShaking(0.1f, new Vector2(0.3f, 0.3f));
             }  
         }
         _timerFire += Time.deltaTime;

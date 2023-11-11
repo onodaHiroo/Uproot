@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -7,10 +9,8 @@ public class CameraShakeEffect : MonoBehaviour
 {
     public static CameraShakeEffect instance;
     //public static float _durationTimer = 0;
-
     private static bool _isShaking;
     public static bool IsShaking => _isShaking;
-
     public void Awake()
     {
         if (instance == null)
@@ -23,6 +23,7 @@ public class CameraShakeEffect : MonoBehaviour
         }
 
     }
+
     //private void FixedUpdate()
     //{
     //    _durationTimer += 0.07f;
@@ -30,7 +31,8 @@ public class CameraShakeEffect : MonoBehaviour
 
     private static IEnumerator Shake(float duration, Vector2 positionOffsetLimits)
     {
-        _isShaking= true;
+        Debug.Log($"Тряска камерой запущена в :({Thread.CurrentThread}) потоке");
+        _isShaking = true;
         Vector3 origin = instance.transform.position;
         float _durationTimer = 0;
 
@@ -51,7 +53,7 @@ public class CameraShakeEffect : MonoBehaviour
             instance.transform.position = origin + (Vector3)offset;
 
             //Increase _durationTimer
-            _durationTimer += 0.07f;
+            _durationTimer += Time.deltaTime;
 
             //Wait for some time until next position change should happen
             //yield return new WaitForSecondsRealtime(duration);

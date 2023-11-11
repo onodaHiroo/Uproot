@@ -79,6 +79,7 @@ public class CameraController : MonoBehaviour
             p += Vector3.ClampMagnitude(mp - p, 100.0f) / 2.0f;
             p.z = transform.position.z;
             transform.position = Vector3.Lerp(transform.position, p, 10.0f * Time.deltaTime);
+
     }
         //else
         //{
