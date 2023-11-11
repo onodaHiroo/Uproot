@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7080238242528071701
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7080238242528071696}
+  - component: {fileID: 7080238242528071698}
+  - component: {fileID: 7080238242528071699}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: LevelManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7080238242528071696
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7080238242528071701}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7080238242528071698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7080238242528071701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f40a3fc58b817643a7cfeb77c514b5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies: []
+  allEnemiesAreDeadCheck: 0
+  exit: {fileID: 0}
+  levelCompletedTMPUGUI: {fileID: 0}
+  exitArrow: {fileID: 0}
+--- !u!114 &7080238242528071699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7080238242528071701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 606ccb830ba8eff47a30905b089c133c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDeadBodies:
+  - {fileID: -1587151021, guid: 5753913b4a475264fa4d1b8bedeea67d, type: 3}
+  - {fileID: -652906863, guid: 5753913b4a475264fa4d1b8bedeea67d, type: 3}
+  - {fileID: 401119540, guid: 5753913b4a475264fa4d1b8bedeea67d, type: 3}
+  - {fileID: -551749797, guid: 5753913b4a475264fa4d1b8bedeea67d, type: 3}
+  - {fileID: -1604519097, guid: 5753913b4a475264fa4d1b8bedeea67d, type: 3}
+  playerDeadBodies:
+  - {fileID: -1784169362, guid: 4176785f58800e244bb3d9386c09b5a1, type: 3}
+  - {fileID: -1424066705, guid: 4176785f58800e244bb3d9386c09b5a1, type: 3}
+  - {fileID: 580035577, guid: 4176785f58800e244bb3d9386c09b5a1, type: 3}
+  - {fileID: 1738867086, guid: 4176785f58800e244bb3d9386c09b5a1, type: 3}
+  - {fileID: -1099076863, guid: 4176785f58800e244bb3d9386c09b5a1, type: 3}
+  bloodSplashAnims:
+  - {fileID: 6309857418387396502, guid: c6584842618da8d44b34b3dd06640651, type: 3}
+  - {fileID: 7980740108840590199, guid: 605bfb735015fc0488fbf3dcb9613eb6, type: 3}
+  - {fileID: 8505025605984016274, guid: 3b30bf14bb73ea8449c3488f830708e7, type: 3}
+  - {fileID: 872745239980555153, guid: d187e643afb9e8e46832bbe9d9a94c7d, type: 3}
