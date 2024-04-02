@@ -1,5 +1,5 @@
 # Uproot
-Small 2D-TopDown Shooter concentrated with blood and violence.
+Small 2D-TopDown Shooter concentrated with blood and violence made with Unity.
 
 "It seems that in a world filled with technology, there is no place for troubles, but..."
 
